@@ -1,20 +1,42 @@
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
   
-  td, th {
-    border: 2px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-  }
+td, th {
+  border: 2px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
   
-  tr:nth-child(even) {
-    background-color: #cdcdcd;
+tr:nth-child(even) {
+  background-color: #cdcdcd;
 }
 
 input {
     margin-top: 10px;
     box-shadow: 1.5px 1.5px 1.5px black;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}
+
+h2 {
+  font-family: arial, sans-serif;
+  text-decoration: underline;
+}
+
+.bet {
+  background-color: green;
+  color: white;
+  font-family: arial, sans-serif;
+}
+
+.del {
+  background-color: red;
+  color: white;
+  font-family: arial, sans-serif;
 }
