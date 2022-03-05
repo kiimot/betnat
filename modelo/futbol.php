@@ -17,8 +17,10 @@ class Futbol extends EventoDeportivo{
         $this->cuotaEmpate= $cuotaEmpate;
     }
 
-    public function calcularCuotaCombinada(){
-        $this->cuotaEquipoLocal += 5;  
+    public function calcularCuotaCombinada($cuotaFutbol){
+        $suplemento = $cuotaFutbol / 10;
+        $cuotaFutbolComb = $cuotaFutbol + $suplemento;
+        return $cuotaFutbolComb;
     }
 
     /**

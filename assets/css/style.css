@@ -1,17 +1,55 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+html {
+  font-family: Roboto;
+}
+
+body {
+  background-color: #3c3c3c;
+}
+
+hr {
+  border: 0; 
+  height: 12px; 
+  box-shadow: inset 0 12px 12px -12px #356F85;
+}
+
 table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  background-color: white;
+  border-color: #356F85;
+  border-style: solid ; 
+  border-top-width: 3px; 
+  border-right-width: 10px; 
+  border-bottom-width:10px; 
+  border-left-width: 10px;
 }
   
 td, th {
-  border: 2px solid #dddddd;
   text-align: center;
   padding: 8px;
+}
+
+th {
+  background-color: #356F85;
+}
+
+tr:hover {
+  background-color: gray;
 }
   
 tr:nth-child(even) {
   background-color: #cdcdcd;
+}
+
+tr:nth-child(even):hover {
+  background-color: gray;
 }
 
 input {
@@ -20,13 +58,14 @@ input {
 }
 
 img {
-  height: 200px;
-  width: 200px;
+  height: 35;
+  width: 35;
 }
 
 h2 {
   font-family: arial, sans-serif;
   text-decoration: underline;
+  color: white;
 }
 
 .bet {
@@ -39,4 +78,65 @@ h2 {
   background-color: red;
   color: white;
   font-family: arial, sans-serif;
+}
+
+.logo {
+  height: 50px;
+  width: 175px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.cantidadSelecciones {
+  float: right;
+  height: 50px;
+  width: 175px;
+  background-color: #356F85;
+  font-weight: bolder;
+  color: white;
+  font-family: 'Roboto';
+  font-size: 17px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.realizarMasApuestas {
+  float: right;
+  height: 80px;
+  width: 210px;
+  background-color: #356F85;
+  font-weight: bolder;
+  color: white;
+  font-family: 'Roboto';
+  font-size: 17px;
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black
+}
+
+footer {
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  margin-right: 5px;
+  width: 100%;
+  color: white;
+  padding-top: 30px;
+}
+
+.textoFooter {
+  text-align: center;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin: 0;
+  margin-bottom: 10px;
 }

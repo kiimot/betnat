@@ -20,7 +20,7 @@ abstract class EventoDeportivo{
         $this->nombreEquipoVisitante = $nombreEquipoVisitante;
     }
 
-    public abstract function calcularCuotaCombinada();
+    public abstract function calcularCuotaCombinada($cuota);
 
     /**
      * Get the value of nombreEquipoVisitante
