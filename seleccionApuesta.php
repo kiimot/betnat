@@ -15,7 +15,7 @@
 
         // Iniciamos las SESSIONES
         session_start();
-        
+
         // Cógido web de la página donde accederemos a ver las apuestas seleccionadas
         
                     

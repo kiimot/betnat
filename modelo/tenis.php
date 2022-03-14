@@ -15,8 +15,8 @@ class Tenis extends EventoDeportivo{
         $this->cuotaEquipoVisitante = $cuotaEquipoVisitante;
     }
 
-    public function calcularCuotaCombinada($cuotaTenis){
-        $suplemento = $cuotaTenis / 5;
+    public static function calcularCuotaCombinada($cuotaTenis){
+        $suplemento = $cuotaTenis / 20;
         $cuotaTenisComb = $cuotaTenis + $suplemento;
         return $cuotaTenisComb;
     }

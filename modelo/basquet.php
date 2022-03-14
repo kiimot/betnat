@@ -15,8 +15,8 @@ class Basquet extends EventoDeportivo{
         $this->cuotaEquipoVisitante = $cuotaEquipoVisitante;
     }
 
-    public function calcularCuotaCombinada($cuotaBasquet){
-        $suplemento = $cuotaBasquet / 5;
+    public static function calcularCuotaCombinada($cuotaBasquet){
+        $suplemento = $cuotaBasquet / 10;
         $cuotaBasquetComb = $cuotaBasquet + $suplemento;
         return $cuotaBasquetComb;
     }

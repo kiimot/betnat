@@ -112,6 +112,12 @@
                 </tr>
             <?php } ?>
         </table>
+        <?php
+            if (isset($_SESSION['ultimaApuesta'])){
+                echo $_SESSION['ultimaApuesta'];
+            }
+        ?>
+
     </body>
     <footer>
         <div class="copyright">

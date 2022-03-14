@@ -68,6 +68,12 @@ h2 {
   color: white;
 }
 
+h5 {
+  text-align: center;
+  margin-top: 30px;
+  color: white;
+}
+
 .bet {
   background-color: green;
   color: white;
@@ -139,4 +145,8 @@ html {
 body {
   margin: 0;
   margin-bottom: 10px;
+}
+
+input:hover {
+  cursor: pointer;
 }

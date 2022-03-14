@@ -54,10 +54,10 @@
                         <td><?php echo $cantidadApostadaCombinada ?>€</td> <!-- Mostramos la cantidad apostada en la combinada -->
                         <td><?php echo $cantidadApostadaCombinada*$cuotaTotalCombinada ?>€</td> <!-- Mostramos las ganancias totales multiplicando la cantidad apostada por la cuota total -->
                             </tr>
-            <?php } ?>
-                    <tr>   
+            <?php } 
+                $_SESSION['ultimaApuesta'] = "<h5>Last bet: Selection: COMBINADA Amount ".$cantidadApostadaCombinada."  Pot. Win. ".$cuotaTotalCombinada*$cantidadApostadaCombinada."</h5>" ;
+            ?>
 
-                    </tr>
                     
                 </table>
                 <br><br>

@@ -17,6 +17,7 @@
                 $eventoAccion = $_GET['eventoAccion']; // Guardamos eventoAccion en la variable eventoAccion
                 $seleccionCuota = $_GET['seleccionCuota']; // Guardamos seleccionCuota en la variable seleccionCuota
                 $cantidadApostada = $_GET['cantidadApostada']; // Guardamos cantidadApostada en la variable cantidadApostada
+                $gananciasPotenciales = 0;
                 ?>
                 <br><br>
                 <table>
@@ -54,9 +55,11 @@
                         ?>
                         <td><?= $cantidadApostada; ?>€</td> <!-- Mostramos la cantidad apostada -->
                         <?php
-                            if ($seleccionCuota == 1){?><td><?= ($listaEventos[$eventoAccion]->getCuotaEquipoLocal()*$cantidadApostada); ?>€</td><?php } // Si la seleccion de la cuota es 1, multiplicamos la cuota local por la cantidad apostada y mostramos
-                            elseif ($seleccionCuota == "X"){?><td><?= $listaEventos[$eventoAccion]->getCuotaEmpate()*$cantidadApostada; ?>€</td><?php } // Si la seleccion de la cuota es X, multiplicamos la cuota del empate por la cantidad apostada y mostramos
-                            elseif ($seleccionCuota == 2){?><td><?= $listaEventos[$eventoAccion]->getCuotaEquipoVisitante()*$cantidadApostada; ?>€</td><?php } // Si la seleccion de la cuota es 2, multiplicamos la cuota visitante por la cantidad apostada y mostramos
+                            if ($seleccionCuota == 1){?><td><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoLocal()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 1, multiplicamos la cuota local por la cantidad apostada y mostramos
+                            elseif ($seleccionCuota == "X"){?><td><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEmpate()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es X, multiplicamos la cuota del empate por la cantidad apostada y mostramos
+                            elseif ($seleccionCuota == 2){?><td><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoVisitante()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 2, multiplicamos la cuota visitante por la cantidad apostada y mostramos
+                            session_start();
+                            $_SESSION['ultimaApuesta'] = "<h5>Last bet: Selection: SIMPLE Amount ".$cantidadApostada."  Pot. Win. ".$gananciasPotenciales."</h5>" ;
                         ?>
                     </tr>
                 </table>
