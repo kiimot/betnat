@@ -101,8 +101,10 @@ else{
     <br><br>
     <table>
         <tr>
-            <th colspan="3" class="titulo-tabla">Fútbol</th>
-            <th class="numero-tabla">1</th>
+            <th class="titulo-tabla">Fútbol</th>
+            <th class="celdaEscondida numero-tabla"></th>
+            <th class="celdaEscondida numero-tabla"></th>
+            <th class="numero-tabla ">1</th>
             <th class="numero-tabla">X</th>
             <th class="numero-tabla">2</th>
         </tr>
@@ -111,8 +113,8 @@ else{
         foreach ($listaEventos as $evento ){ ?> <!-- Recorreremos todos los eventos disponibles, guardando cada uno en la variable $evento -->
             <?php if ($evento->getTipoEvento() == "Futbol") { ?>
             <tr>
-                <td><?= $evento->getFechaEvento(); ?></td>  <!-- Mostramos la fecha del evento en la pantalla -->
-                <td>
+                <td class="celdaEscondida"><?= $evento->getFechaEvento(); ?></td>  <!-- Mostramos la fecha del evento en la pantalla -->
+                <td class="celdaEscondida">
                     <img style="width:45px;height:45px;" src="./assets/img/<?= $evento->getLogoEquipoLocal(); ?>">  <!-- Mostraremos la imagen del logo del equipo local -->
                     <img style="width:45px;height:45px;" src="./assets/img/<?= $evento->getLogoEquipoVisitante(); ?>">  <!-- Mostraremos la imagen del logo del equipo visitante -->
                 </td>
@@ -147,7 +149,9 @@ else{
     <br><br>
     <table>
         <tr>
-            <th colspan="3" class="titulo-tabla">Basquet</th>
+            <th colspan="1" class="titulo-tabla">Basquet</th>
+            <th class="celdaEscondida numero-tabla"></th>
+            <th class="celdaEscondida numero-tabla"></th>
             <th class="numero-tabla">1</th>
             <th class="numero-tabla">2</th>
         </tr>
@@ -156,8 +160,8 @@ else{
         foreach ($listaEventos as $evento ){ ?> <!-- Recorreremos todos los eventos disponibles, guardando cada uno en la variable $evento -->
             <?php if ($evento->getTipoEvento() == "Basquet") { ?>
             <tr>
-                <td><?= $evento->getFechaEvento(); ?></td>  <!-- Mostramos la fecha del evento en la pantalla -->
-                <td>
+                <td class="celdaEscondida"><?= $evento->getFechaEvento(); ?></td>  <!-- Mostramos la fecha del evento en la pantalla -->
+                <td class="celdaEscondida">
                     <?php if (($evento->getTipoEvento() == "Futbol") || ($evento->getTipoEvento() == "Basquet")){ ?>        <!-- Si el tipo de evento es Fútbol o Basquet -->
                         <img style="width:45px;height:45px;" src="./assets/img/<?= $evento->getLogoEquipoLocal(); ?>">  <!-- Mostraremos la imagen del logo del equipo local -->
                         <img style="width:45px;height:45px;" src="./assets/img/<?= $evento->getLogoEquipoVisitante(); ?>">  <!-- Mostraremos la imagen del logo del equipo visitante -->
@@ -189,7 +193,9 @@ else{
     <br><br>
     <table>
         <tr>
-            <th colspan="3" class="titulo-tabla">Tenis</th>
+            <th colspan="1" class="titulo-tabla">Tenis</th>
+            <th class="celdaEscondida numero-tabla"></th>
+            <th class="celdaEscondida numero-tabla"></th>
             <th class="numero-tabla">1</th>
             <th class="numero-tabla">2</th>
         </tr>
@@ -198,8 +204,8 @@ else{
         foreach ($listaEventos as $evento ){ ?> <!-- Recorreremos todos los eventos disponibles, guardando cada uno en la variable $evento -->
             <?php if ($evento->getTipoEvento() == "Tenis") { ?>
             <tr>
-                <td><?= $evento->getFechaEvento(); ?></td>  <!-- Mostramos la fecha del evento en la pantalla -->
-                <td>
+                <td class="celdaEscondida"><?= $evento->getFechaEvento(); ?></td>  <!-- Mostramos la fecha del evento en la pantalla -->
+                <td class="celdaEscondida">
                     <?php if (($evento->getTipoEvento() == "Futbol") || ($evento->getTipoEvento() == "Basquet")){ ?>        <!-- Si el tipo de evento es Fútbol o Basquet -->
                         <img style="width:45px;height:45px;" src="./assets/img/<?= $evento->getLogoEquipoLocal(); ?>">  <!-- Mostraremos la imagen del logo del equipo local -->
                         <img style="width:45px;height:45px;" src="./assets/img/<?= $evento->getLogoEquipoVisitante(); ?>">  <!-- Mostraremos la imagen del logo del equipo visitante -->
@@ -216,7 +222,7 @@ else{
                         <input type="submit" value="<?= $evento->getCuotaEquipoLocal(); ?>"> <!-- Mostramos en el submit el valor de la cuota 1 por pantalla -->
                     </form> 
                 </td>                  
-                <td colspan="2">
+                <td>
                     <form action='./tablaEventos.php' method='post'> <!-- Cuando pulsemos al SUBMIT, guardaremos los datos de los inputs -->
                         <input type="hidden" name="evento" value=<?= $evento->getCodigoEvento();?> > <!-- Guardamos en el input 'evento' el código del evento seleccionado -->
                         <input type="hidden" name="seleccionEvento" value=2> <!-- Guardaremos en el input 'seleccionEvento' el valor 2, porque se habrá pulsado el 2 -->

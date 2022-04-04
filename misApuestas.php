@@ -85,7 +85,7 @@ if (isset($_POST['borrarApuesta'])){
               $gananciasPotenciales = 0;
               ?>
               <br><br>
-              <table>
+              <table class="tablaSeleccionadosLG">
                   <tr>
                       <th></th>
                       <th></th>
@@ -133,7 +133,55 @@ if (isset($_POST['borrarApuesta'])){
                       </td>
                   </tr>
               </table>
-              <br><br>
+
+              <table class="tablaSeleccionadosMobil">
+
+                  <tr>
+                      <td><?= $listaEventos[$codigoEventoApostado]->getFechaEvento(); ?></td> <!-- Mostramos la fecha del evento seleccionado -->
+                      <td>
+                          <!-- Mostramos el logo / bandera nacionalidad de los equipos -->
+                          <?php if (($listaEventos[$codigoEventoApostado]->getTipoEvento() == "Futbol") || ($listaEventos[$codigoEventoApostado]->getTipoEvento() == "Basquet")){ ?>
+                              <img style="width:35px;height:35px;" src="./assets/img/<?= $listaEventos[$codigoEventoApostado]->getLogoEquipoLocal(); ?>"><br>
+                              <img style="width:35px;height:35px;" src="./assets/img/<?= $listaEventos[$codigoEventoApostado]->getLogoEquipoVisitante(); ?>">
+                          <?php } else { ?>
+                              <img style="width:35px;height:25px;" src="./assets/img/<?= $listaEventos[$codigoEventoApostado]->getNacionalidadEquipoLocal(); ?>"><br><br>
+                              <img style="width:35px;height:25px;" src="./assets/img/<?= $listaEventos[$codigoEventoApostado]->getNacionalidadEquipoVisitante(); ?>">
+                          <?php } ?>
+                      </td>
+                      <td><?= $listaEventos[$codigoEventoApostado]->getNombreEquipoLocal(); ?> <br> <?= $listaEventos[$codigoEventoApostado]->getNombreEquipoVisitante(); ?></td>  <!-- Mostramos los nombres del equipo local y visitante -->
+                      <?php
+                          if ($seleccionCuotaApostada == 1){?><td><?= $listaEventos[$codigoEventoApostado]->getNombreEquipoLocal(); ?></td><?php } // Si la seleccion es la cuota es 1, mostramos el nombre del equipo local
+                          elseif ($seleccionCuotaApostada == "X"){?><td>Empate</td><?php } // Si la seleccion es la cuota es X, mostramos empate
+                          elseif ($seleccionCuotaApostada == 2){?><td><?= $listaEventos[$codigoEventoApostado]->getNombreEquipoVisitante(); ?></td><?php } // Si la seleccion es la cuota es 2, mostramos el nombre del equipo visitante
+                      ?>
+                      
+                  </tr>
+                  <tr>
+                      <th>Cuota</th>
+                      <th colspan="2">Cantidad Apostada</th>
+                      <th>Ganancias Potenciales</th>
+                  </tr>
+                  <tr>
+                      <?php
+                          if ($seleccionCuotaApostada == 1){?><td><?= $listaEventos[$codigoEventoApostado]->getCuotaEquipoLocal(); ?></td><?php } // Si la seleccion de la cuota es 1, mostramos la cuota del equipo local
+                          elseif ($seleccionCuotaApostada == "X"){?><td><?= $listaEventos[$codigoEventoApostado]->getCuotaEmpate(); ?></td><?php } // Si la seleccion de la cuota es X, mostramos la cuota del empate
+                          elseif ($seleccionCuotaApostada == 2){?><td><?= $listaEventos[$codigoEventoApostado]->getCuotaEquipoVisitante(); ?></td><?php } // Si la seleccion de la cuota es 2, mostramos la cuota del equipo visitante
+                      ?>
+                      <td colspan="2"><?= $cantidadEventoApostado; ?>€</td> <!-- Mostramos la cantidad apostada -->
+                      <?php
+                          if ($seleccionCuotaApostada == 1){?><td><?= $gananciasEventoApostado ?>€</td><?php } // Si la seleccion de la cuota es 1, multiplicamos la cuota local por la cantidad apostada y mostramos
+                          elseif ($seleccionCuotaApostada == "X"){?><td><?= $gananciasEventoApostado ?>€</td><?php } // Si la seleccion de la cuota es X, multiplicamos la cuota del empate por la cantidad apostada y mostramos
+                          elseif ($seleccionCuotaApostada == 2){?><td><?= $gananciasEventoApostado ?>€</td><?php } // Si la seleccion de la cuota es 2, multiplicamos la cuota visitante por la cantidad apostada y mostramos  
+                      ?>
+                  </tr>
+                  <tr>
+                      <td colspan="7">
+                        <form method='post' action="misApuestas.php">
+                          <input name="borrarApuesta" class="cerrarApuesta" type="submit" value="CERRAR APUESTA" />
+                        </form>
+                      </td>
+                  </tr>
+              </table>
               
             <?php } 
 
@@ -145,7 +193,7 @@ if (isset($_POST['borrarApuesta'])){
                 $cantidadApostadaCombinada = $_COOKIE['cantidadEventoApostado'];
                 $gananciasApuesta = $_COOKIE['gananciasEventoApostado']; ?>
                 <br><br>
-                <table>
+                <table  class="tablaSeleccionadosLG">
                   <tr>
                     <th></th>
                     <th></th>
@@ -185,12 +233,54 @@ if (isset($_POST['borrarApuesta'])){
                         </form>
                       </td>
                   </tr>
+              </table>
+
+
+              <table  class="tablaSeleccionadosMobil">
+                  <tr>
+                      <td>
+                          <?php foreach ($codigoEventoApostado as $codigo=>$evento){ ?> <!-- Recorremos todos los eventos seleccionados y mostramos su fecha evento en la misma celda -->
+                              <?= $codigoEventoApostado[$codigo]->getFechaEvento(); ?><br>
+                          <?php } ?>
+                      </td>
+                      <td>
+                          <?php foreach ($codigoEventoApostado as $codigo=>$evento){ ?> <!-- Recorremos todos los eventos seleccionados y mostramos el nombre del equipo local y visitante en la misma celda -->
+                              <?= $codigoEventoApostado[$codigo]->getNombreEquipoLocal(); ?> - <?= $codigoEventoApostado[$codigo]->getNombreEquipoVisitante(); ?><br>
+                          <?php } ?>
+                      </td>
+                      <td>
+                          <?php
+                              foreach ($codigoEventoApostado as $codigo=>$evento){ // Recorremos todos los eventos seleccionados y mostraremos la seleccion del evento, en función de si es 1-X-2, en la misma celda
+                                  if ($cuotaApostadaIndiv[$codigo] == 1){ echo $codigoEventoApostado[$codigo]->getNombreEquipoLocal();?><br><?php }
+                                  elseif ($cuotaApostadaIndiv[$codigo] == "X"){echo "Empate";?><br><?php }
+                                  elseif ($cuotaApostadaIndiv[$codigo] == 2){ echo $codigoEventoApostado[$codigo]->getNombreEquipoVisitante();?><br><?php }
+                              }
+                          ?>
+                      </td>
+                      
+                  </tr>
+                  <tr>
+                    <th>Cuota</th>
+                    <th>Cantidad Apostada</th>
+                    <th>Ganancias Potenciales</th>
+                  </tr>
+                  <tr>
+                    <td><?php echo $cuotaTotalCombinada ?></td> <!-- Mostramos la cuota total de la combinada -->
+                    <td><?php echo $cantidadApostadaCombinada ?>€</td> <!-- Mostramos la cantidad apostada en la combinada -->
+                    <td><?php echo $gananciasApuesta ?>€</td> <!-- Mostramos las ganancias totales multiplicando la cantidad apostada por la cuota total -->
+                  </tr>
+                  <tr>
+                      <td colspan="7">
+                        <form method='post' action="misApuestas.php">
+                          <input name="borrarApuesta" class="cerrarApuesta" type="submit" value="CERRAR APUESTA" />
+                        </form>
+                      </td>
+                  </tr>
+              </table>
           <?php } ?>
 
                   
-          </table>
-          <br><br>
-
+          
 
           <?php } ?>
 </section>

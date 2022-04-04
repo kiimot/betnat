@@ -93,7 +93,7 @@ body {
 
 #banner {
   background: url("../img/fondoEventosDestacados.jpg");
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
   margin-bottom: 40px;
@@ -125,8 +125,7 @@ body {
   padding: 7.5px;
   padding-left: 15px;
   padding-right: 15px;
-  float: right;
-  margin-left: 700px;
+  margin-left: 500px;
 }
 
 
@@ -166,7 +165,7 @@ td, th {
 
 #seccion2 {
   background: url("../img/seccion4.jpg");
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   margin-top: 55px;
@@ -178,7 +177,9 @@ td, th {
 }
 
 
-
+.tablaSeleccionadosMobil {
+  display: none;
+}
 
 
 
@@ -287,79 +288,35 @@ footer {
 @media (max-width: 768px) {
 
   #banner {
-    margin-bottom: 5px;
-  }
-
-  .formato-texto {
-    float: left;
-    margin-left: 290px;
-    margin-top: 10px;
-  }
-  
-
-  .capaoscuraBanner1 {
-    height: 125px;
-    margin-bottom: 10px;
-  }
-
-  .capaoscuraSeccion1 {
-    height: 107px;
-    margin-bottom: 15px;
-  }
-
-  .crearApuesta {
-    font-size: 10px;
-    padding: 4px;
-    padding-left: 7.5px;
-    padding-right: 7.5px;
-    margin-top: 0px;
-    float: right;
-    margin-right: 35px;
-  }
-
-  .tituloBanner1 {
-    font-size: 15px;
-  }
-
-  .tituloSeccion1 {
-    font-size: 15px;
-  }
-
-  .textoBanner1, .textoSeccion1 {
-    font-size: 10px;
-  }
-
-  .textoSeccion1 {
-    font-size: 8px;
-  }
-
-  .formato-texto-seccion1 {
-    float: left;
-    margin-left: 75px;
-    margin-top: 5px;
-  }
-
-  .escudo {
-    width: 10px;
-    margin-right: 5px;
     margin-bottom: 0px;
   }
 
-  .botonSeleccion1, .botonSeleccion2 {
-    font-size: 10px;
-    padding: 2px;
+  .formato-texto {
+    display: block;
+    margin-top: 6%;
+  }
+
+  .capaoscuraBanner1 {
+    height: 150px;
+    margin-bottom: 10px;
+  }
+
+  .crearApuesta {
+    font-size: 15px;
+    padding: 4px;
     padding-left: 7.5px;
     padding-right: 7.5px;
-    margin-top: 0px;
-    margin-right: 20px;
+    margin-top: 10px;
+    margin-left: 0px;
   }
 
-  .botonesSelecciones {
-    margin-left: 115px;
+  .tituloBanner1 {
+    font-size: 30px;
   }
 
-  #seccion1, #seccion2 {
-    margin-bottom: 2px;
+  #seccion2 {
+    margin-bottom: 0px;
+    margin-top: 190px;
   }
 
   .capaoscuraSeccion2 {
@@ -380,73 +337,54 @@ footer {
     height: 111.5px;
   }
 
+  table {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .tablaSeleccionadosMobil {
+    display: inline-table;
+  }
+
+  .celdaEscondida {
+    display: none;
+  }
+
+  .capaoscuraSeccion2 {
+    background: rgb(31, 31, 31, 0.7);
+    height: 175px;
+  }
+
   footer {
-    margin-top: 36px;
-    height: 100px;
-    padding-top: 15px;
+    margin-top: 0px;
+    height: 110px;
+    padding-top: 5px;
     display: flex;
   }
 
   .zonaFooterIzq {
+    display: none;
+  }
+
+  .zonaFooterCentro {
+    font-size: 10px;
     margin-left: 10px;
     margin-right: 10px;
-  }
-  
-  .footerIzq1 {
-    height: 10px;
-    margin-bottom: 2px;
-  }
-  
-  .footerIzq2 {
-    height: 12.5px;
-    margin-bottom: 2px;
-  }
-  
-  .footerIzq3 {
-    height: 5.8px;
-    margin-bottom: 2px;
-  }
-  
-  .footerIzq4, .footerIzq5, .footerIzq6 {
-    height: 12px;
-    margin-bottom: 2px;
-  }
-  
-  .zonaFooterCentro {
-    font-size: 6px;
-    color: white;
-    text-align: center;
   }
   
   .zonaFooterDer {
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-  
-  .footerDer1, .footerDer2 {
-    height: 10px;
-    margin-bottom: 2px;
-  }
-  
-  .footerDer3 {
-    height: 15px;
-    margin-bottom: 2px;
-  }
-  
-  .footerDer4 {
-    height: 12.5px;
-    margin-bottom: 2px;
+    display: none;
   }
   
   .enlaces {
     margin-top: 8px;
-    font-size: 6px;
+    font-size: 8px;
     font-weight: bold;
   }
   
   .copyright {
     margin-top: 20px;
-    font-size: 6px;
+    font-size: 10px;
   }
 
 }

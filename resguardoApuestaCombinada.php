@@ -79,7 +79,7 @@ session_start();
             setcookie('cantidadEventoApostado', $cantidadApostadaCombinada, time()+3600);
     ?>
         <br><br>
-        <table>
+        <table class="tablaSeleccionadosLG">
             <tr>
                 <th></th>
                 <th></th>
@@ -112,15 +112,45 @@ session_start();
                 <td><?php echo $cantidadApostadaCombinada; ?>€</td> <!-- Mostramos la cantidad apostada en la combinada -->
                 <td><?php echo $cantidadApostadaCombinada*$cuotaTotalCombinada; ?>€</td> <!-- Mostramos las ganancias totales multiplicando la cantidad apostada por la cuota total -->
             </tr>
+        </table>
+
+        <table class="tablaSeleccionadosMobil">
+            <tr>
+                <td>
+                    <?php foreach ($_SESSION['eventos'] as $codigo=>$evento){ ?> <!-- Recorremos todos los eventos seleccionados y mostramos su fecha evento en la misma celda -->
+                        <?= $_SESSION['eventos'][$codigo]->getFechaEvento(); ?><br>
+                    <?php } ?>
+                </td>
+                <td>
+                    <?php foreach ($_SESSION['eventos'] as $codigo=>$evento){ ?> <!-- Recorremos todos los eventos seleccionados y mostramos el nombre del equipo local y visitante en la misma celda -->
+                        <?= $_SESSION['eventos'][$codigo]->getNombreEquipoLocal(); ?> - <?= $_SESSION['eventos'][$codigo]->getNombreEquipoVisitante(); ?><br>
+                    <?php } ?>
+                </td>
+                <td>
+                    <?php
+                        foreach ($_SESSION['eventos'] as $codigo=>$evento){ // Recorremos todos los eventos seleccionados y mostraremos la seleccion del evento, en función de si es 1-X-2, en la misma celda
+                            if ($_SESSION['seleccionEventos'][$codigo] == 1){ echo $_SESSION['eventos'][$codigo]->getNombreEquipoLocal();?><br><?php }
+                            elseif ($_SESSION['seleccionEventos'][$codigo] == "X"){echo "Empate";?><br><?php }
+                            elseif ($_SESSION['seleccionEventos'][$codigo] == 2){ echo $_SESSION['eventos'][$codigo]->getNombreEquipoVisitante();?><br><?php }
+                        }
+                    ?>
+                </td>
+            </tr>
+                <th>Cuota</th>
+                <th>Cantidad Apostada</th>
+                <th>Ganancias Potenci.</th>
+            </tr>
+            <tr>
+                <td><?php echo $cuotaTotalCombinada;  ?></td> <!-- Mostramos la cuota total de la combinada -->
+                <td><?php echo $cantidadApostadaCombinada; ?>€</td> <!-- Mostramos la cantidad apostada en la combinada -->
+                <td><?php echo $cantidadApostadaCombinada*$cuotaTotalCombinada; ?>€</td> <!-- Mostramos las ganancias totales multiplicando la cantidad apostada por la cuota total -->
+            </tr>
+        </table>
+
     <?php } 
-        $_SESSION['eventos'] = [] ;
-        $_SESSION['seleccionEventos'] = [] ;        
+        //$_SESSION['eventos'] = [] ;
+        //$_SESSION['seleccionEventos'] = [] ;        
     ?>
-
-            
-    </table>
-    <br><br>
-
 </section>
 
 

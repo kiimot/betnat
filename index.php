@@ -88,11 +88,13 @@ else{
 
 <section id="banner">
   <div class="capaoscuraBanner1 text-color3">
-    <span class="formato-texto">
-      <h1 class="tituloBanner1">COMBINADAS DE FÚTBOL</h1>
-      <h6 class="textoBanner1">¡Bonificación de hasta el 70% en cumuladas ganadoras. Combina<br>hasta 25 variables del mismo partido y en la misma apuesta!</h6>
-      <a href="tablaEventos.php"><button class="crearApuesta">Crea tu apuesta</button></a>
-    </span>
+    <div class="container-lg">
+      <span class="formato-texto">
+        <h1 class="tituloBanner1">COMBINADAS DE FÚTBOL</h1>
+        <h6 class="textoBanner1">¡Bonificación de hasta el 70% en cumuladas ganadoras. Combina<br>hasta 25 variables del mismo partido y en la misma apuesta!</h6>
+        <a href="tablaEventos.php"><button class="crearApuesta">Crea tu apuesta</button></a>
+      </span>
+    </div>
   </div>
 </section>
 

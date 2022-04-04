@@ -74,7 +74,7 @@ session_start();
 
         // COMPROBAMOS SI LAS SESSIONES ESTAN VACÍAS, si estan vacías no mostraremos la tabla, si estan llenas las dos si.
         if (!empty($_SESSION['eventos']) && !empty($_SESSION['seleccionEventos'])){?> 
-                <table>
+                <table class="tablaSeleccionadosLG">
                 <?php
                 foreach ($_SESSION['eventos'] as $codigo=>$evento ){ ?>  <!-- Recorreremos todos los eventos disponibles, guardando cada uno en la variable $evento -->
                     <tr>
@@ -159,6 +159,86 @@ session_start();
                     </tr>
                     <?php } ?>
             </table>
+
+            <table class="tablaSeleccionadosMobil">
+                <?php
+                foreach ($_SESSION['eventos'] as $codigo=>$evento ){ ?>  <!-- Recorreremos todos los eventos disponibles, guardando cada uno en la variable $evento -->
+                    <tr>
+                        <td><?= $evento->getNombreEquipoLocal(); ?> <br> <?= $evento->getNombreEquipoVisitante(); ?></td> <!-- Mostramos el nombre del equipo local y del equipo visitante -->
+                        <?php
+                            if ($_SESSION['seleccionEventos'][$codigo] == 1){?><td><?= $evento->getNombreEquipoLocal(); ?></td><?php } // Si existe existe algun valor con la misma clave que la de la session de eventos seleccionados y el valor es 1, sacamos el nombre del equipo local
+                            elseif ($_SESSION['seleccionEventos'][$codigo] == "X"){?><td>Empate</td><?php }  // Si existe existe algun valor con la misma clave que la de la session de eventos seleccionados y el valor es X, sacamos el por pantalla "Empate"
+                            elseif ($_SESSION['seleccionEventos'][$codigo] == 2){?><td><?= $evento->getNombreEquipoVisitante(); ?></td><?php }  // Si existe existe algun valor con la misma clave que la de la session de eventos seleccionados y el valor es 2, sacamos el nombre del equipo visitante
+                        ?>
+                        <?php
+                            if ($_SESSION['seleccionEventos'][$codigo] == 1){?><td><?= $evento->getCuotaEquipoLocal(); ?></td><?php } // Si existe existe algun valor con la misma clave que la de la session de eventos seleccionados y el valor es 1, sacamos la cuota del equipo local
+                            elseif ($_SESSION['seleccionEventos'][$codigo] == "X"){?><td><?= $evento->getCuotaEmpate(); ?></td><?php }   // Si existe existe algun valor con la misma clave que la de la session de eventos seleccionados y el valor es X, sacamos la cuota del empate 
+                            elseif ($_SESSION['seleccionEventos'][$codigo] == 2){?><td><?= $evento->getCuotaEquipoVisitante(); ?></td><?php }  // Si existe existe algun valor con la misma clave que la de la session de eventos seleccionados y el valor es 2, sacamos la cuota del equipo visitante
+                        ?>
+                        <td>
+                            <form action='./seleccionApuesta.php' method='post'> <!-- Haremos como un refresh cuando se pulse el input de submit y recogeremos estos valores -->
+                                <input type="hidden" name="eventoAccion" value=<?= $evento->getCodigoEvento();?>> <!-- Recogemos el código del evento del evento que quiere eliminar -->
+                                <input type="hidden" name="seleccionCuota" value=<?= $_SESSION['seleccionEventos'][$codigo];?>> <!-- Recogemos la opción seleccionada del evento '(1-X-2)' que quiere eliminar -->                                
+                                <input class="cruz" type="submit" name="DEL" value="X"> <!-- Hacemos un input que servirá para eliminar -->
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td colspan="5">
+                            <form action='resguardoApuesta.php' method='get'> <!-- Mandaremos al fichero resguardoApuesta.php los datos recodigos de este formulario -->
+                                <input type="number" name="cantidadApostada" class="formulario" required> <!-- Recogemos y enviamos la cantidad que va a apostar el usuario en la apuesta que pulsa bet -->
+                                <input type="hidden" name="eventoAccion" value=<?= $evento->getCodigoEvento();?>> <!-- Recogemos y enviamos el código del evento del evento que quiere apostar -->
+                                <input type="hidden" name="seleccionCuota" value=<?= $_SESSION['seleccionEventos'][$codigo];?>> <!-- Recogemos la opción seleccionada del evento '(1-X-2)' que quiere apostar -->
+                                <br><input class="bet" type="submit" name="BET" value="APOSTAR"> <!-- Hacemos un input que servirá para apostar -->     
+                            </form>
+                      </td>
+                    </tr>
+                <?php } 
+                    if (count($_SESSION['seleccionEventos']) >= 2){?> ?>
+                    <tr>
+                        <td class="combinada-betnat">COMBINADA BETNAT</td>
+                        <td><?php
+                            $cuotaTotalFutbol = 0;  // Aquí guardaremos la cuota total de todos los eventos de futbol
+                            $cuotaTotalBasquet = 0;  // Aquí guardaremos la cuota total de todos los eventos de basquet
+                            $cuotaTotalTenis = 0;  // Aquí guardaremos la cuota total de todos los eventos de tenis
+
+                            foreach ($_SESSION['eventos'] as $codigo=>$evento ){ ?> <!-- Recorreremos todos los eventos disponibles, guardando cada uno en la variable $evento -->
+                                <?php if ($evento->getTipoEvento() == "Futbol"){ // Si el tipo de evento es futbol                             
+                                    if ($_SESSION['seleccionEventos'][$codigo] == 1){ $cuota = $evento->getCuotaEquipoLocal();  $cuotaTotalFutbol += $cuota; } // Comprobamos la sesion con la clave, y si se ha recogido un 1, guardamos la cuota local y la añadimos a la cuotaTotal de futbol
+                                    elseif ($_SESSION['seleccionEventos'][$codigo] == "X"){ $cuota = $evento->getCuotaEmpate(); $cuotaTotalFutbol += $cuota; } // Comprobamos la sesion con la clave, y si se ha recogido una X, guardamos la cuota del empate y la añadimos a la cuotaTotal de futbol
+                                    elseif ($_SESSION['seleccionEventos'][$codigo] == 2){ $cuota = $evento->getCuotaEquipoVisitante();  $cuotaTotalFutbol += $cuota; } // Comprobamos la sesion con la clave, y si se ha recogido un 2, guardamos la cuota visitante y la añadimos a la cuotaTotal de futbol
+                                } elseif ($evento->getTipoEvento() == "Basquet"){ // Si el tipo de evento es basquet 
+                                    if ($_SESSION['seleccionEventos'][$codigo] == 1){ $cuota = $evento->getCuotaEquipoLocal();  $cuotaTotalBasquet += $cuota; } // Comprobamos la sesion con la clave, y si se ha recogido un 1, guardamos la cuota local y la añadimos a la cuotaTotal de basquet
+                                    elseif ($_SESSION['seleccionEventos'][$codigo] == 2){ $cuota = $evento->getCuotaEquipoVisitante();  $cuotaTotalBasquet += $cuota; } // Comprobamos la sesion con la clave, y si se ha recogido un 2, guardamos la cuota visitante y la añadimos a la cuotaTotal de basquet
+                                } elseif ($evento->getTipoEvento() == "Tenis"){
+                                    if ($_SESSION['seleccionEventos'][$codigo] == 1){ $cuota = $evento->getCuotaEquipoLocal(); $cuotaTotalTenis += $cuota; } // Comprobamos la sesion con la clave, y si se ha recogido un 1, guardamos la cuota local y la añadimos a la cuotaTotal de tenis
+                                    elseif ($_SESSION['seleccionEventos'][$codigo] == 2){ $cuota = $evento->getCuotaEquipoVisitante();  $cuotaTotalTenis += $cuota; } // Comprobamos la sesion con la clave, y si se ha recogido un 2, guardamos la cuota visitante y la añadimos a la cuotaTotal de tenis
+                                }
+                            } ?>
+                            <?php 
+                                if ((count($_SESSION['eventos']) >= 2)){ // Si tenemos mas de 1 evento seleccionado, la forma de calcular la cuota combinada será diferente a si hay solo 1
+                                    $suplemento = ($cuotaTotalFutbol + $cuotaTotalBasquet + $cuotaTotalTenis)/(count($_SESSION['eventos'])*10); // Calcularemos el suplemento de la cuota de la combinada
+                                    $cuotaTotalCombinada = round($cuotaTotalFutbol + $cuotaTotalBasquet + $cuotaTotalTenis + $suplemento, 2); // Sumamos todo y redondeamos a dos decimales
+                                    echo $cuotaTotalCombinada; // Mostramos la cuota todal combinada
+                                }else { // Si hay solo 1 evento seleccionado, la cuota no cambiará ni tendrá un suplemento
+                                    $cuotaTotalCombinada = round($cuotaTotalFutbol + $cuotaTotalBasquet + $cuotaTotalTenis, 2); // Sumamos todo y redondeamos a dos decimales
+                                    echo $cuotaTotalCombinada; // Mostramos la cuota todal combinada
+                                }
+                            ?>
+                        </td>  
+                        <td>
+                            <form action='resguardoApuestaCombinada.php' method='get'> <!-- Mandaremos al fichero resguardoApuesta.php los datos recodigos de este formulario -->
+                                <input type="number" name="cantidadApostadaCombinada" class="formulario" required> <!-- Introducimos la cantidad que queremos apostar y la guardamos -->
+                                <input type="hidden" name="cuotaTotalCombinada" value=<?= $cuotaTotalCombinada; ?>> <!-- También guardaremos el valor de la cuota total combinada -->
+                                <br><input class="bet" type="submit" name="BETCOMBINADA" value="APOSTAR"> <!-- Si pulsamos en BET, apostaremos en la combinada de todas las selecciones -->
+                            </form>
+                        </td>                     
+                    </tr>
+                    <?php } ?>
+            </table>
+
+
+
         <?php }  
         
         if (isset($_POST['DEL'])){  // Si existe la variable DEL

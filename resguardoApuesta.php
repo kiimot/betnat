@@ -81,9 +81,9 @@ session_start();
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th>Cuota</th>
-                    <th>Cantidad Apostada</th>
-                    <th>Ganancias Potenciales</th>
+                    <th class="celdaEscondida">Cuota</th>
+                    <th class="celdaEscondida">Cantidad Apostada</th>
+                    <th class="celdaEscondida">Ganancias Potenciales</th>
                 </tr>
                 <tr>
                     <td><?= $listaEventos[$eventoAccion]->getFechaEvento(); ?></td> <!-- Mostramos la fecha del evento seleccionado -->
@@ -104,15 +104,15 @@ session_start();
                         elseif ($seleccionCuota == 2){?><td><?= $listaEventos[$eventoAccion]->getNombreEquipoVisitante(); ?></td><?php } // Si la seleccion es la cuota es 2, mostramos el nombre del equipo visitante
                     ?>
                     <?php
-                        if ($seleccionCuota == 1){?><td><?= $listaEventos[$eventoAccion]->getCuotaEquipoLocal(); ?></td><?php } // Si la seleccion de la cuota es 1, mostramos la cuota del equipo local
-                        elseif ($seleccionCuota == "X"){?><td><?= $listaEventos[$eventoAccion]->getCuotaEmpate(); ?></td><?php } // Si la seleccion de la cuota es X, mostramos la cuota del empate
-                        elseif ($seleccionCuota == 2){?><td><?= $listaEventos[$eventoAccion]->getCuotaEquipoVisitante(); ?></td><?php } // Si la seleccion de la cuota es 2, mostramos la cuota del equipo visitante
+                        if ($seleccionCuota == 1){?><td class="celdaEscondida"><?= $listaEventos[$eventoAccion]->getCuotaEquipoLocal(); ?></td><?php } // Si la seleccion de la cuota es 1, mostramos la cuota del equipo local
+                        elseif ($seleccionCuota == "X"){?><td class="celdaEscondida"><?= $listaEventos[$eventoAccion]->getCuotaEmpate(); ?></td><?php } // Si la seleccion de la cuota es X, mostramos la cuota del empate
+                        elseif ($seleccionCuota == 2){?><td class="celdaEscondida"><?= $listaEventos[$eventoAccion]->getCuotaEquipoVisitante(); ?></td><?php } // Si la seleccion de la cuota es 2, mostramos la cuota del equipo visitante
                     ?>
-                    <td><?= $cantidadApostada; ?>€</td> <!-- Mostramos la cantidad apostada -->
+                    <td class="celdaEscondida"><?= $cantidadApostada; ?>€</td> <!-- Mostramos la cantidad apostada -->
                     <?php
-                        if ($seleccionCuota == 1){?><td><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoLocal()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 1, multiplicamos la cuota local por la cantidad apostada y mostramos
-                        elseif ($seleccionCuota == "X"){?><td><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEmpate()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es X, multiplicamos la cuota del empate por la cantidad apostada y mostramos
-                        elseif ($seleccionCuota == 2){?><td><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoVisitante()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 2, multiplicamos la cuota visitante por la cantidad apostada y mostramos
+                        if ($seleccionCuota == 1){?><td class="celdaEscondida"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoLocal()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 1, multiplicamos la cuota local por la cantidad apostada y mostramos
+                        elseif ($seleccionCuota == "X"){?><td class="celdaEscondida"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEmpate()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es X, multiplicamos la cuota del empate por la cantidad apostada y mostramos
+                        elseif ($seleccionCuota == 2){?><td class="celdaEscondida"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoVisitante()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 2, multiplicamos la cuota visitante por la cantidad apostada y mostramos
                         $_SESSION['ultimaApuesta'] = "<h5>Last bet: Selection: SIMPLE Amount ".$cantidadApostada."  Pot. Win. ".$gananciasPotenciales."</h5>";
                         setcookie('codigoEventoApostado', $listaEventos[$eventoAccion]->getCodigoEvento(), time()+3600);
                         setcookie('seleccionCuotaApostada', $seleccionCuota, time()+3600); 
@@ -122,7 +122,28 @@ session_start();
                     ?>
                 </tr>
             </table>
-            <br><br>
+            
+            
+            <table class="tablaSeleccionadosMobil">
+                <tr>
+                    <th colspan="2">Cuota</th>
+                    <th colspan="1">Cantidad Apostada</th>
+                    <th colspan="2">Ganancias Potenciales</th>
+                </tr>
+                <tr>
+                    <?php
+                        if ($seleccionCuota == 1){?><td colspan="2"><?= $listaEventos[$eventoAccion]->getCuotaEquipoLocal(); ?></td><?php } // Si la seleccion de la cuota es 1, mostramos la cuota del equipo local
+                        elseif ($seleccionCuota == "X"){?><td colspan="2"><?= $listaEventos[$eventoAccion]->getCuotaEmpate(); ?></td><?php } // Si la seleccion de la cuota es X, mostramos la cuota del empate
+                        elseif ($seleccionCuota == 2){?><td colspan="2"><?= $listaEventos[$eventoAccion]->getCuotaEquipoVisitante(); ?></td><?php } // Si la seleccion de la cuota es 2, mostramos la cuota del equipo visitante
+                    ?>
+                    <td colspan="1"><?= $cantidadApostada; ?>€</td > <!-- Mostramos la cantidad apostada -->
+                    <?php
+                        if ($seleccionCuota == 1){?><td colspan="2"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoLocal()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 1, multiplicamos la cuota local por la cantidad apostada y mostramos
+                        elseif ($seleccionCuota == "X"){?><td colspan="2"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEmpate()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es X, multiplicamos la cuota del empate por la cantidad apostada y mostramos
+                        elseif ($seleccionCuota == 2){?><td colspan="2"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoVisitante()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 2, multiplicamos la cuota visitante por la cantidad apostada y mostramos
+                    ?>
+                </tr>
+            </table>
 
             
 
@@ -130,7 +151,6 @@ session_start();
             $_SESSION['eventos'] = [] ;
             $_SESSION['seleccionEventos'] = [] ;
         ?>
-    ?>
 </section>
 
 
