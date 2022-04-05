@@ -10,11 +10,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/styleResguardoApuesta.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="screen">
     
     <!--JS-->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="./assets/css/stle.css" type="text/css"/>
 </head>
 <body>
 <header>
@@ -54,12 +53,12 @@ session_start();
 
 ?>
 
-<section id="banner">
-  <div class="capaoscuraBanner1 text-color3">
-    <div class="formato-texto">
-      <h1 class="tituloBanner1">Resguardo Apuesta Simple</h1>     
+<section id="bannerResguardoSimple">
+  <div class="capaOscuraBannerResguardoSimple text-color3">
+    <div class="formatoTextoResguardoSimple">
+      <h1 class="tituloBannerResguardoSimple">Resguardo Apuesta Simple</h1>     
         <form method='get' action="tablaEventos.php"> <!-- Formulario para recoger el valor del input, nos llevará a index.php (nos servira para vaciar los arrays de las sessiones) -->
-            <input name="comeBack" class="crearApuesta" type="submit" value="Realizar mas apuestas" /> <!-- Cuando pulsemos el input, el valor será Realizar mas apuesta -->
+            <input name="comeBack" class="realizarMasApuestasResguardoSimple" type="submit" value="Realizar mas apuestas" /> <!-- Cuando pulsemos el input, el valor será Realizar mas apuesta -->
         </form>
     </div>
   </div>
@@ -73,17 +72,25 @@ session_start();
             $seleccionCuota = $_GET['seleccionCuota']; // Guardamos seleccionCuota en la variable seleccionCuota
             $cantidadApostada = $_GET['cantidadApostada']; // Guardamos cantidadApostada en la variable cantidadApostada
             $gananciasPotenciales = 0;
+            setcookie('codigoEventoApostado', $listaEventos[$eventoAccion]->getCodigoEvento(), time()+3600);
+            setcookie('seleccionCuotaApostada', $seleccionCuota, time()+3600); 
+            setcookie('cantidadEventoApostado', $cantidadApostada, time()+3600); 
+            setcookie('tipoApuesta','Simple', time()+3600);
+            if ($seleccionCuota == 1){ setcookie('gananciasEventoApostado', ($cantidadApostada* $listaEventos[$eventoAccion]->getCuotaEquipoLocal()), time()+3600); }
+            elseif ($seleccionCuota == "X"){ setcookie('gananciasEventoApostado', ($cantidadApostada* $listaEventos[$eventoAccion]->getCuotaEmpate()), time()+3600); }
+            elseif ($seleccionCuota == 2){ setcookie('gananciasEventoApostado', ($cantidadApostada* $listaEventos[$eventoAccion]->getCuotaEquipoVisitante()), time()+3600); }
+
             ?>
             <br><br>
-            <table>
+            <table class="tablaSeleccionadosLGResguardoSimple">
                 <tr>
                     <th></th>
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th class="celdaEscondida">Cuota</th>
-                    <th class="celdaEscondida">Cantidad Apostada</th>
-                    <th class="celdaEscondida">Ganancias Potenciales</th>
+                    <th class="celdaEscondidaResguardoSimple">Cuota</th>
+                    <th class="celdaEscondidaResguardoSimple">Cantidad Apostada</th>
+                    <th class="celdaEscondidaResguardoSimple">Ganancias Potenciales</th>
                 </tr>
                 <tr>
                     <td><?= $listaEventos[$eventoAccion]->getFechaEvento(); ?></td> <!-- Mostramos la fecha del evento seleccionado -->
@@ -104,43 +111,37 @@ session_start();
                         elseif ($seleccionCuota == 2){?><td><?= $listaEventos[$eventoAccion]->getNombreEquipoVisitante(); ?></td><?php } // Si la seleccion es la cuota es 2, mostramos el nombre del equipo visitante
                     ?>
                     <?php
-                        if ($seleccionCuota == 1){?><td class="celdaEscondida"><?= $listaEventos[$eventoAccion]->getCuotaEquipoLocal(); ?></td><?php } // Si la seleccion de la cuota es 1, mostramos la cuota del equipo local
-                        elseif ($seleccionCuota == "X"){?><td class="celdaEscondida"><?= $listaEventos[$eventoAccion]->getCuotaEmpate(); ?></td><?php } // Si la seleccion de la cuota es X, mostramos la cuota del empate
-                        elseif ($seleccionCuota == 2){?><td class="celdaEscondida"><?= $listaEventos[$eventoAccion]->getCuotaEquipoVisitante(); ?></td><?php } // Si la seleccion de la cuota es 2, mostramos la cuota del equipo visitante
+                        if ($seleccionCuota == 1){?><td class="celdaEscondidaResguardoSimple"><?= $listaEventos[$eventoAccion]->getCuotaEquipoLocal(); ?></td><?php } // Si la seleccion de la cuota es 1, mostramos la cuota del equipo local
+                        elseif ($seleccionCuota == "X"){?><td class="celdaEscondidaResguardoSimple"><?= $listaEventos[$eventoAccion]->getCuotaEmpate(); ?></td><?php } // Si la seleccion de la cuota es X, mostramos la cuota del empate
+                        elseif ($seleccionCuota == 2){?><td class="celdaEscondidaResguardoSimple"><?= $listaEventos[$eventoAccion]->getCuotaEquipoVisitante(); ?></td><?php } // Si la seleccion de la cuota es 2, mostramos la cuota del equipo visitante
                     ?>
-                    <td class="celdaEscondida"><?= $cantidadApostada; ?>€</td> <!-- Mostramos la cantidad apostada -->
+                    <td class="celdaEscondidaResguardoSimple"><?= $cantidadApostada; ?>€</td> <!-- Mostramos la cantidad apostada -->
                     <?php
-                        if ($seleccionCuota == 1){?><td class="celdaEscondida"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoLocal()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 1, multiplicamos la cuota local por la cantidad apostada y mostramos
-                        elseif ($seleccionCuota == "X"){?><td class="celdaEscondida"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEmpate()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es X, multiplicamos la cuota del empate por la cantidad apostada y mostramos
-                        elseif ($seleccionCuota == 2){?><td class="celdaEscondida"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoVisitante()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 2, multiplicamos la cuota visitante por la cantidad apostada y mostramos
-                        $_SESSION['ultimaApuesta'] = "<h5>Last bet: Selection: SIMPLE Amount ".$cantidadApostada."  Pot. Win. ".$gananciasPotenciales."</h5>";
-                        setcookie('codigoEventoApostado', $listaEventos[$eventoAccion]->getCodigoEvento(), time()+3600);
-                        setcookie('seleccionCuotaApostada', $seleccionCuota, time()+3600); 
-                        setcookie('cantidadEventoApostado', $cantidadApostada, time()+3600); 
-                        setcookie('gananciasEventoApostado', $gananciasPotenciales, time()+3600);
-                        setcookie('tipoApuesta','Simple', time()+3600);
+                        if ($seleccionCuota == 1){?><td class="celdaEscondidaResguardoSimple"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoLocal()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 1, multiplicamos la cuota local por la cantidad apostada y mostramos
+                        elseif ($seleccionCuota == "X"){?><td class="celdaEscondidaResguardoSimple"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEmpate()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es X, multiplicamos la cuota del empate por la cantidad apostada y mostramos
+                        elseif ($seleccionCuota == 2){?><td class="celdaEscondidaResguardoSimple"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoVisitante()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 2, multiplicamos la cuota visitante por la cantidad apostada y mostramos
                     ?>
                 </tr>
             </table>
             
             
-            <table class="tablaSeleccionadosMobil">
+            <table class="tablaSeleccionadosMobilResguardoSimple">
                 <tr>
-                    <th colspan="2">Cuota</th>
-                    <th colspan="1">Cantidad Apostada</th>
-                    <th colspan="2">Ganancias Potenciales</th>
+                    <th>Cuota</th>
+                    <th>Cantidad Apostada</th>
+                    <th>Ganancias Potenci.</th>
                 </tr>
                 <tr>
                     <?php
-                        if ($seleccionCuota == 1){?><td colspan="2"><?= $listaEventos[$eventoAccion]->getCuotaEquipoLocal(); ?></td><?php } // Si la seleccion de la cuota es 1, mostramos la cuota del equipo local
-                        elseif ($seleccionCuota == "X"){?><td colspan="2"><?= $listaEventos[$eventoAccion]->getCuotaEmpate(); ?></td><?php } // Si la seleccion de la cuota es X, mostramos la cuota del empate
-                        elseif ($seleccionCuota == 2){?><td colspan="2"><?= $listaEventos[$eventoAccion]->getCuotaEquipoVisitante(); ?></td><?php } // Si la seleccion de la cuota es 2, mostramos la cuota del equipo visitante
+                        if ($seleccionCuota == 1){?><td><?= $listaEventos[$eventoAccion]->getCuotaEquipoLocal(); ?></td><?php } // Si la seleccion de la cuota es 1, mostramos la cuota del equipo local
+                        elseif ($seleccionCuota == "X"){?><td><?= $listaEventos[$eventoAccion]->getCuotaEmpate(); ?></td><?php } // Si la seleccion de la cuota es X, mostramos la cuota del empate
+                        elseif ($seleccionCuota == 2){?><td><?= $listaEventos[$eventoAccion]->getCuotaEquipoVisitante(); ?></td><?php } // Si la seleccion de la cuota es 2, mostramos la cuota del equipo visitante
                     ?>
-                    <td colspan="1"><?= $cantidadApostada; ?>€</td > <!-- Mostramos la cantidad apostada -->
+                    <td><?= $cantidadApostada; ?>€</td> <!-- Mostramos la cantidad apostada -->
                     <?php
-                        if ($seleccionCuota == 1){?><td colspan="2"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoLocal()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 1, multiplicamos la cuota local por la cantidad apostada y mostramos
-                        elseif ($seleccionCuota == "X"){?><td colspan="2"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEmpate()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es X, multiplicamos la cuota del empate por la cantidad apostada y mostramos
-                        elseif ($seleccionCuota == 2){?><td colspan="2"><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoVisitante()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 2, multiplicamos la cuota visitante por la cantidad apostada y mostramos
+                        if ($seleccionCuota == 1){?><td><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoLocal()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 1, multiplicamos la cuota local por la cantidad apostada y mostramos
+                        elseif ($seleccionCuota == "X"){?><td><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEmpate()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es X, multiplicamos la cuota del empate por la cantidad apostada y mostramos
+                        elseif ($seleccionCuota == 2){?><td><?= $gananciasPotenciales = ($listaEventos[$eventoAccion]->getCuotaEquipoVisitante()*$cantidadApostada); $gananciasPotenciales ?>€</td><?php } // Si la seleccion de la cuota es 2, multiplicamos la cuota visitante por la cantidad apostada y mostramos
                     ?>
                 </tr>
             </table>
@@ -151,11 +152,12 @@ session_start();
             $_SESSION['eventos'] = [] ;
             $_SESSION['seleccionEventos'] = [] ;
         ?>
+    ?>
 </section>
 
 
-<section id="seccion2">
-  <div class="capaoscuraSeccion2 text-color3"></div>
+<section id="seccion2ResguardoSimple">
+  <div class="capaOscuraSeccion2ResguardoSimple text-color3"></div>
 </section>
 
 
@@ -168,27 +170,27 @@ session_start();
 
 
 
-<footer>
-  <div class="zonaFooterIzq">
-    <img class="footerIzq1" src="./assets/img/footerIzq1.png"><br>
-    <img class="footerIzq2" src="./assets/img/footerIzq2.png"><br>
-    <img class="footerIzq3" src="./assets/img/footerIzq3.png"><br>
-    <img class="footerIzq4" src="./assets/img/footerIzq4.png">
-    <img class="footerIzq5" src="./assets/img/footerIzq5.png">
-    <img class="footerIzq6" src="./assets/img/footerIzq6.png">
+<footer class="footerResguardoSimple">
+  <div class="zonaFooterIzqResguardoSimple">
+    <img class="footerIzq1ResguardoSimple" src="./assets/img/footerIzq1.png"><br>
+    <img class="footerIzq2ResguardoSimple" src="./assets/img/footerIzq2.png"><br>
+    <img class="footerIzq3ResguardoSimple" src="./assets/img/footerIzq3.png"><br>
+    <img class="footerIzq4ResguardoSimple" src="./assets/img/footerIzq4.png">
+    <img class="footerIzq5ResguardoSimple" src="./assets/img/footerIzq5.png">
+    <img class="footerIzq6ResguardoSimple" src="./assets/img/footerIzq6.png">
   </div>
-  <div class="zonaFooterCentro">
+  <div class="zonaFooterCentroResguardoSimple">
     Al acceder, seguir utilizando o navegar en este sitio Web, el cliente acepta que utilicemos ciertas cookies
     de navegación para mejorar su experiencia con nosotros. Betnat solo utilizará cookies que mejoren su 
     experiencia y no aquellas que interfieran con su privacidad.
-    <div class="enlaces">Política de privacidad   |   Política de cookies   |   Reglas y Regulaciones   |   Términos y condiciones  |   Juega con responsabilidad</div>
-    <div class="copyright">Copyright © 2022 Betnat. Todos los derechos reservados.</div>
+    <div class="enlacesResguardoSimple">Política de privacidad   |   Política de cookies   |   Reglas y Regulaciones   |   Términos y condiciones  |   Juega con responsabilidad</div>
+    <div class="copyrightResguardoSimple">Copyright © 2022 Betnat. Todos los derechos reservados.</div>
   </div>
-  <div class="zonaFooterDer">
-    <img class="footerDer1" src="./assets/img/footerDer1.png">
-    <img class="footerDer2" src="./assets/img/footerDer2.png"><br>
-    <img class="footerDer3" src="./assets/img/footerDer3.png"><br>
-    <img class="footerDer4" src="./assets/img/footerDer4.png">
+  <div class="zonaFooterDerResguardoSimple">
+    <img class="footerDer1ResguardoSimple" src="./assets/img/footerDer1.png">
+    <img class="footerDer2ResguardoSimple" src="./assets/img/footerDer2.png"><br>
+    <img class="footerDer3ResguardoSimple" src="./assets/img/footerDer3.png"><br>
+    <img class="footerDer4ResguardoSimple" src="./assets/img/footerDer4.png">
   </div>
 </footer>
 

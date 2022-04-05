@@ -1,6 +1,7 @@
+<!DOCTYPE html PUBLIC>
 <html>
 <head>
-<title>BETNAT</title>
+    <title>BETNAT</title>
     <!-- <meta http-equiv="refresh" content="2"> -->
     <meta charset="UTF-8">
     <meta name="description" content="Plantilla web bootstrap">
@@ -10,13 +11,25 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/styleSeleccionApuesta.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="screen">
     
     <!--JS-->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="./assets/css/stle.css" type="text/css"/>
+    <style>
+        th {
+            background-color: #356F85;
+        }
+
+        tr:nth-child(even) {
+            background-color: #cdcdcd;
+        }
+    </style>
+
 </head>
 <body>
+    
+<!-- Barra de navegación -->
+<header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-color1">
         <div class="container-lg">
           <a class="navbar-brand fs-3" href="./index.php"><img style="width: 150px;" src="./assets/img/logo.png"></a>
@@ -53,18 +66,21 @@ session_start();
 
 ?>
 
-<section id="banner">
-  <div class="capaoscuraBanner1 text-color3">
-    <div class="formato-texto">
-      <h1 class="tituloBanner1">Eventos Seleccionados</h1>
-      <a href="tablaEventos.php"><button class="crearApuesta">Añadir Eventos</button></a>
+<!-- Banner donde tenemos el boton con la cantidad de eventos seleccionados -->
+<section id="bannerSeleccionApuesta">
+  <div class="capaOscuraBannerSeleccionApuesta text-color3">
+    <div class="formatoTextoSeleccionApuesta">
+      <h1 class="tituloBannerSeleccionApuesta">Eventos Seleccionados</h1>
+      <a href="tablaEventos.php"><button class="añadirEventosSeleccionApuesta">Añadir Eventos</button></a>
     </div>
   </div>
 </section>
 
-<section id="tablasEventos">
+<!-- Sección donde mostraremos los eventos seleccionados -->
+<section id="tablasEventosSeleccionApuesta">
     <?php
 
+        // Si hemos recogido codigoEvento y seleccionEvento de "index.php" lo añadimos a los eventos seleccionados
         if (isset($_GET['codigoEvento']) && isset($_GET['seleccionEvento'])){
             $eventoSeleccionado = $listaEventos[$_GET['codigoEvento']];
             $_SESSION['eventos'][$_GET['codigoEvento']]= $eventoSeleccionado;
@@ -73,8 +89,10 @@ session_start();
         }
 
         // COMPROBAMOS SI LAS SESSIONES ESTAN VACÍAS, si estan vacías no mostraremos la tabla, si estan llenas las dos si.
-        if (!empty($_SESSION['eventos']) && !empty($_SESSION['seleccionEventos'])){?> 
-                <table class="tablaSeleccionadosLG">
+        if (!empty($_SESSION['eventos']) && !empty($_SESSION['seleccionEventos'])){?>
+                <br><br>
+                <!-- Esta es la tabla para formato LG --> 
+                <table class="tablaSeleccionadosLGSeleccionApuesta">
                 <?php
                 foreach ($_SESSION['eventos'] as $codigo=>$evento ){ ?>  <!-- Recorreremos todos los eventos disponibles, guardando cada uno en la variable $evento -->
                     <tr>
@@ -103,23 +121,23 @@ session_start();
                             <form action='./seleccionApuesta.php' method='post'> <!-- Haremos como un refresh cuando se pulse el input de submit y recogeremos estos valores -->
                                 <input type="hidden" name="eventoAccion" value=<?= $evento->getCodigoEvento();?>> <!-- Recogemos el código del evento del evento que quiere eliminar -->
                                 <input type="hidden" name="seleccionCuota" value=<?= $_SESSION['seleccionEventos'][$codigo];?>> <!-- Recogemos la opción seleccionada del evento '(1-X-2)' que quiere eliminar -->                                
-                                <input class="cruz" type="submit" name="DEL" value="X"> <!-- Hacemos un input que servirá para eliminar -->
+                                <input class="cruzSeleccionApuesta" type="submit" name="DEL" value="X"> <!-- Hacemos un input que servirá para eliminar -->
                             </form>
                             <form action='resguardoApuesta.php' method='get'> <!-- Mandaremos al fichero resguardoApuesta.php los datos recodigos de este formulario -->
-                                <input type="number" name="cantidadApostada" class="formulario" required> <!-- Recogemos y enviamos la cantidad que va a apostar el usuario en la apuesta que pulsa bet -->
+                                <input type="number" name="cantidadApostada" class="formularioSeleccionApuesta" required> <!-- Recogemos y enviamos la cantidad que va a apostar el usuario en la apuesta que pulsa bet -->
                                 <input type="hidden" name="eventoAccion" value=<?= $evento->getCodigoEvento();?>> <!-- Recogemos y enviamos el código del evento del evento que quiere apostar -->
                                 <input type="hidden" name="seleccionCuota" value=<?= $_SESSION['seleccionEventos'][$codigo];?>> <!-- Recogemos la opción seleccionada del evento '(1-X-2)' que quiere apostar -->
-                                <br><input class="bet" type="submit" name="BET" value="APOSTAR"> <!-- Hacemos un input que servirá para apostar -->     
+                                <br><input class="betSeleccionApuesta" type="submit" name="BET" value="APOSTAR"> <!-- Hacemos un input que servirá para apostar -->     
                             </form>
                         </td>
                     </tr>
                 <?php } 
-                    if (count($_SESSION['seleccionEventos']) >= 2){?> ?>
+                    if (count($_SESSION['seleccionEventos']) >= 2){?>
                     <tr>
                         <td></td>
                         <td></td>
                         <td></td>    
-                        <td class="combinada-betnat">COMBINADA BETNAT</td>
+                        <td class="combinadaBetnatSeleccionApuesta">COMBINADA BETNAT</td>
                         <td><?php
                             $cuotaTotalFutbol = 0;  // Aquí guardaremos la cuota total de todos los eventos de futbol
                             $cuotaTotalBasquet = 0;  // Aquí guardaremos la cuota total de todos los eventos de basquet
@@ -151,16 +169,17 @@ session_start();
                         </td>  
                         <td>
                             <form action='resguardoApuestaCombinada.php' method='get'> <!-- Mandaremos al fichero resguardoApuesta.php los datos recodigos de este formulario -->
-                                <input type="number" name="cantidadApostadaCombinada" class="formulario" required> <!-- Introducimos la cantidad que queremos apostar y la guardamos -->
+                                <input type="number" name="cantidadApostadaCombinada" class="formularioSeleccionApuesta" required> <!-- Introducimos la cantidad que queremos apostar y la guardamos -->
                                 <input type="hidden" name="cuotaTotalCombinada" value=<?= $cuotaTotalCombinada; ?>> <!-- También guardaremos el valor de la cuota total combinada -->
-                                <br><input class="bet" type="submit" name="BETCOMBINADA" value="APOSTAR"> <!-- Si pulsamos en BET, apostaremos en la combinada de todas las selecciones -->
+                                <br><input class="betSeleccionApuesta" type="submit" name="BETCOMBINADA" value="APOSTAR"> <!-- Si pulsamos en BET, apostaremos en la combinada de todas las selecciones -->
                             </form>
                         </td>                     
                     </tr>
                     <?php } ?>
             </table>
 
-            <table class="tablaSeleccionadosMobil">
+            <!-- Esta es la tabla para formato mobil --> 
+            <table class="tablaSeleccionadosMobilSeleccionApuesta">
                 <?php
                 foreach ($_SESSION['eventos'] as $codigo=>$evento ){ ?>  <!-- Recorreremos todos los eventos disponibles, guardando cada uno en la variable $evento -->
                     <tr>
@@ -179,24 +198,24 @@ session_start();
                             <form action='./seleccionApuesta.php' method='post'> <!-- Haremos como un refresh cuando se pulse el input de submit y recogeremos estos valores -->
                                 <input type="hidden" name="eventoAccion" value=<?= $evento->getCodigoEvento();?>> <!-- Recogemos el código del evento del evento que quiere eliminar -->
                                 <input type="hidden" name="seleccionCuota" value=<?= $_SESSION['seleccionEventos'][$codigo];?>> <!-- Recogemos la opción seleccionada del evento '(1-X-2)' que quiere eliminar -->                                
-                                <input class="cruz" type="submit" name="DEL" value="X"> <!-- Hacemos un input que servirá para eliminar -->
+                                <input class="cruzSeleccionApuesta" type="submit" name="DEL" value="X"> <!-- Hacemos un input que servirá para eliminar -->
                             </form>
                         </td>
                     </tr>
                     <tr>
                       <td colspan="5">
                             <form action='resguardoApuesta.php' method='get'> <!-- Mandaremos al fichero resguardoApuesta.php los datos recodigos de este formulario -->
-                                <input type="number" name="cantidadApostada" class="formulario" required> <!-- Recogemos y enviamos la cantidad que va a apostar el usuario en la apuesta que pulsa bet -->
+                                <input type="number" name="cantidadApostada" class="formularioSeleccionApuesta" required> <!-- Recogemos y enviamos la cantidad que va a apostar el usuario en la apuesta que pulsa bet -->
                                 <input type="hidden" name="eventoAccion" value=<?= $evento->getCodigoEvento();?>> <!-- Recogemos y enviamos el código del evento del evento que quiere apostar -->
                                 <input type="hidden" name="seleccionCuota" value=<?= $_SESSION['seleccionEventos'][$codigo];?>> <!-- Recogemos la opción seleccionada del evento '(1-X-2)' que quiere apostar -->
-                                <br><input class="bet" type="submit" name="BET" value="APOSTAR"> <!-- Hacemos un input que servirá para apostar -->     
+                                <br><input class="betSeleccionApuesta" type="submit" name="BET" value="APOSTAR"> <!-- Hacemos un input que servirá para apostar -->     
                             </form>
                       </td>
                     </tr>
                 <?php } 
-                    if (count($_SESSION['seleccionEventos']) >= 2){?> ?>
+                    if (count($_SESSION['seleccionEventos']) >= 2){?> 
                     <tr>
-                        <td class="combinada-betnat">COMBINADA BETNAT</td>
+                        <td class="combinadaBetnatSeleccionApuesta">COMBINADA BETNAT</td>
                         <td><?php
                             $cuotaTotalFutbol = 0;  // Aquí guardaremos la cuota total de todos los eventos de futbol
                             $cuotaTotalBasquet = 0;  // Aquí guardaremos la cuota total de todos los eventos de basquet
@@ -228,9 +247,9 @@ session_start();
                         </td>  
                         <td>
                             <form action='resguardoApuestaCombinada.php' method='get'> <!-- Mandaremos al fichero resguardoApuesta.php los datos recodigos de este formulario -->
-                                <input type="number" name="cantidadApostadaCombinada" class="formulario" required> <!-- Introducimos la cantidad que queremos apostar y la guardamos -->
+                                <input type="number" name="cantidadApostadaCombinada" class="formularioSeleccionApuesta" required> <!-- Introducimos la cantidad que queremos apostar y la guardamos -->
                                 <input type="hidden" name="cuotaTotalCombinada" value=<?= $cuotaTotalCombinada; ?>> <!-- También guardaremos el valor de la cuota total combinada -->
-                                <br><input class="bet" type="submit" name="BETCOMBINADA" value="APOSTAR"> <!-- Si pulsamos en BET, apostaremos en la combinada de todas las selecciones -->
+                                <br><input class="betSeleccionApuesta" type="submit" name="BETCOMBINADA" value="APOSTAR"> <!-- Si pulsamos en BET, apostaremos en la combinada de todas las selecciones -->
                             </form>
                         </td>                     
                     </tr>
@@ -251,42 +270,28 @@ session_start();
     ?>
 </section>
 
-
-<section id="seccion2">
-  <div class="capaoscuraSeccion2 text-color3"></div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-<footer>
-  <div class="zonaFooterIzq">
-    <img class="footerIzq1" src="./assets/img/footerIzq1.png"><br>
-    <img class="footerIzq2" src="./assets/img/footerIzq2.png"><br>
-    <img class="footerIzq3" src="./assets/img/footerIzq3.png"><br>
-    <img class="footerIzq4" src="./assets/img/footerIzq4.png">
-    <img class="footerIzq5" src="./assets/img/footerIzq5.png">
-    <img class="footerIzq6" src="./assets/img/footerIzq6.png">
+<!-- FOOTER, donde tendremos las imagenes laterales de la izquierda, el texto central y las imagenes laterales de la derecha -->
+<footer  class="footerSeleccionApuesta">
+  <div class="zonaFooterIzqSeleccionApuesta">
+    <img class="footerIzq1SeleccionApuesta" src="./assets/img/footerIzq1.png"><br>
+    <img class="footerIzq2SeleccionApuesta" src="./assets/img/footerIzq2.png"><br>
+    <img class="footerIzq3SeleccionApuesta" src="./assets/img/footerIzq3.png"><br>
+    <img class="footerIzq4SeleccionApuesta" src="./assets/img/footerIzq4.png">
+    <img class="footerIzq5SeleccionApuesta" src="./assets/img/footerIzq5.png">
+    <img class="footerIzq6SeleccionApuesta" src="./assets/img/footerIzq6.png">
   </div>
-  <div class="zonaFooterCentro">
+  <div class="zonaFooterCentroSeleccionApuesta">
     Al acceder, seguir utilizando o navegar en este sitio Web, el cliente acepta que utilicemos ciertas cookies
     de navegación para mejorar su experiencia con nosotros. Betnat solo utilizará cookies que mejoren su 
     experiencia y no aquellas que interfieran con su privacidad.
-    <div class="enlaces">Política de privacidad   |   Política de cookies   |   Reglas y Regulaciones   |   Términos y condiciones  |   Juega con responsabilidad</div>
-    <div class="copyright">Copyright © 2022 Betnat. Todos los derechos reservados.</div>
+    <div class="enlacesSeleccionApuesta">Política de privacidad   |   Política de cookies   |   Reglas y Regulaciones   |   Términos y condiciones  |   Juega con responsabilidad</div>
+    <div class="copyrightSeleccionApuesta">Copyright © 2022 Betnat. Todos los derechos reservados.</div>
   </div>
-  <div class="zonaFooterDer">
-    <img class="footerDer1" src="./assets/img/footerDer1.png">
-    <img class="footerDer2" src="./assets/img/footerDer2.png"><br>
-    <img class="footerDer3" src="./assets/img/footerDer3.png"><br>
-    <img class="footerDer4" src="./assets/img/footerDer4.png">
+  <div class="zonaFooterDerSeleccionApuesta">
+    <img class="footerDer1SeleccionApuesta" src="./assets/img/footerDer1.png">
+    <img class="footerDer2SeleccionApuesta" src="./assets/img/footerDer2.png"><br>
+    <img class="footerDer3SeleccionApuesta" src="./assets/img/footerDer3.png"><br>
+    <img class="footerDer4SeleccionApuesta" src="./assets/img/footerDer4.png">
   </div>
 </footer>
 

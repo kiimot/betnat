@@ -11,7 +11,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/styleIndex.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="screen">
     
     <!--JS-->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -24,14 +24,6 @@
 
 // Iniciamos las SESSIONES
 session_start();
-
-// BORRADO SESSIONES SI HEMOS APOSTADO: Vemos si hemos recogido la variable 'comeBack' de las páginas resguardoApuestaCombinada.php o resguardoApuesta.php, 
-// y si hay algún evento en el array de la sesión, eliminaremos la variable 'comeBack' y vacíaremos el array 'evento' y el array 'seleccionEventos' que hay en las sesiones. 
-if (isset($_GET['comeBack'])){
-    if (count($_SESSION['eventos']) >= 1){
-        unset($_GET['comeBack']); 
-    }
-}
 
 //CREAR SESSIONES SI NO EXISTEN: Creamos la variable de sesion si no existen aún, cada sessión será un array llamados 'eventos' (donde almacenaremos los eventos seleccionados)
 // y 'seleccionEventos' (donde almacenaremos la opción que ha escogido de esa apuesta, 1-X-2)
@@ -59,6 +51,7 @@ else{
 
 <body>
 
+<!-- Barra de navegación -->
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-color1">
         <div class="container-lg">
@@ -86,86 +79,90 @@ else{
       </nav>
 </header>
 
-<section id="banner">
-  <div class="capaoscuraBanner1 text-color3">
+<!-- Banner donde tenemos el titulo de COMBINADAS DE FÚTBOL -->
+<section id="bannerIndex">
+  <div class="capaOscuraBannerIndex text-color3">
     <div class="container-lg">
-      <span class="formato-texto">
-        <h1 class="tituloBanner1">COMBINADAS DE FÚTBOL</h1>
-        <h6 class="textoBanner1">¡Bonificación de hasta el 70% en cumuladas ganadoras. Combina<br>hasta 25 variables del mismo partido y en la misma apuesta!</h6>
-        <a href="tablaEventos.php"><button class="crearApuesta">Crea tu apuesta</button></a>
+      <span class="formatoTextoBannerIndex">
+        <h1 class="tituloBannerIndex">COMBINADAS DE FÚTBOL</h1>
+        <h6 class="textoBannerIndex">¡Bonificación de hasta el 70% en cumuladas ganadoras. Combina<br>hasta 25 variables del mismo partido y en la misma apuesta!</h6>
+        <a href="tablaEventos.php"><button class="botonCrearApuestaIndex">Crea tu apuesta</button></a>
       </span>
     </div>
   </div>
 </section>
 
-
-<section id="seccion1">
-  <div class="capaoscuraSeccion1 text-color3">
-    <span class="formato-texto-seccion1">
-      <h1 class="tituloSeccion1">COMBINADAS SIMPLE</h1>
-      <h6 class="textoSeccion1">Jue 5 Mayo, 05:10</h6>
-      <h6 class="textoSeccion1"><img class="escudo" src="./assets/img/rusia.png">Daniil Medvedev</h6>
-      <h6 class="textoSeccion1"><img class="escudo" src="./assets/img/españa.png">Rafael Nadal</h6>
-      <h6 class="botonesSelecciones">
+<!-- Seccion 1, donde se encuentra la apuesta simple de tenis -->
+<section id="seccion1Index">
+  <div class="capaOscuraSeccion1Index text-color3">
+    <span class="formatoTextoSeccion1Index">
+      <h1 class="tituloSeccion1Index">COMBINADAS SIMPLE</h1>
+      <h6 class="textoSeccion1Index">Jue 5 Mayo, 05:10</h6>
+      <h6 class="textoSeccion1Index"><img class="escudoIndex" src="./assets/img/rusia.png">Daniil Medvedev</h6>
+      <h6 class="textoSeccion1Index"><img class="escudoIndex" src="./assets/img/españa.png">Rafael Nadal</h6>
+      <h6 class="botonesSeleccionesIndex">
         <form action='seleccionApuesta.php' method='get'>
             <input type="hidden" name="codigoEvento" value="T01">
             <input type="hidden" name="seleccionEvento" value="1">
-            <input class="botonSeleccion1" type="submit" name="eventoBanner1" value="1.66">    
+            <input class="botonCuotaIndex" type="submit" name="eventoBanner1" value="1.66">    
         </form>
         <form action='seleccionApuesta.php' method='get'>
             <input type="hidden" name="codigoEvento" value="T01">
             <input type="hidden" name="seleccionEvento" value="2">
-            <input class="botonSeleccion1" type="submit" name="eventoBanner2" value="2.20">    
+            <input class="botonCuotaIndex" type="submit" name="eventoBanner2" value="2.20">    
         </form>
       </h6>
     </span>
   </div>
 </section>
 
-<section id="seccion2">
-  <div class="capaoscuraSeccion2 text-color3"></div>
+<!-- Seccion 2, donde se encuentra la imagen simple de 18 puntos de ventaja de basquet -->
+<section id="seccion2Index">
+  <div class="capaOscuraSeccion2Index text-color3"></div>
 </section>
 
-<div class="textoSec2y3">
-  <div class="seccion2">
-    <h6 class="tituloIzquierda">Oferta de 18 puntos de ventaja - Baloncesto</h6>
-    <h7 class="textoIzquierda">Si su jugador es sustituido antes del descanso,<br> le devolveremos
+<!-- En este DIV, donde se encuentran los textos centrales de las secciones 2 y 3 -->
+<div class="textoSeccion2y3Index">
+  <div class="textoSeccion2Index">
+    <h6 class="tituloIzquierdaIndex">Oferta de 18 puntos de ventaja - Baloncesto</h6>
+    <h7 class="textoIzquierdaIndex">Si su jugador es sustituido antes del descanso,<br> le devolveremos
       el importe de su apuesta como<br> créditos de apuesta en mercados seleccionados.</h7>
   </div>
-  <div class="seccion3">
-    <h6 class="tituloDerecha">Fútbol - Garantía por sustitución</h6>
-    <h7 class="textoDerecha">Sus apuestas sencillas se pagarán si su equipo obtiene<br> 18 puntos
+  <div class="textoSeccion3Index">
+    <h6 class="tituloDerechaIndex">Fútbol - Garantía por sustitución</h6>
+    <h7 class="textoDerechaIndex">Sus apuestas sencillas se pagarán si su equipo obtiene<br> 18 puntos
       de ventaja. Para apuestas múltiples, la selección<br> se determinará
      como ganadora.</h7>
   </div>
 </div>
 
-<section id="seccion3">
-  <div class="capaoscuraSeccion3 text-color3"></div>
+<!-- Seccion 3, donde se encuentra la imagen simple de garantia por sustitución -->
+<section id="seccion3Index">
+  <div class="capaOscuraSeccion3Index text-color3"></div>
 </section>
 
-
-<footer>
-  <div class="zonaFooterIzq">
-    <img class="footerIzq1" src="./assets/img/footerIzq1.png"><br>
-    <img class="footerIzq2" src="./assets/img/footerIzq2.png"><br>
-    <img class="footerIzq3" src="./assets/img/footerIzq3.png"><br>
-    <img class="footerIzq4" src="./assets/img/footerIzq4.png">
-    <img class="footerIzq5" src="./assets/img/footerIzq5.png">
-    <img class="footerIzq6" src="./assets/img/footerIzq6.png">
+<!-- FOOTER, donde tendremos las imagenes laterales de la izquierda, el texto central y las imagenes laterales de la derecha -->
+<footer class="footerIndex">
+  <div class="zonaFooterIzqIndex">
+    <img class="footerIzq1Index" src="./assets/img/footerIzq1.png"><br>
+    <img class="footerIzq2Index" src="./assets/img/footerIzq2.png"><br>
+    <img class="footerIzq3Index" src="./assets/img/footerIzq3.png"><br>
+    <img class="footerIzq4Index" src="./assets/img/footerIzq4.png">
+    <img class="footerIzq5Index" src="./assets/img/footerIzq5.png">
+    <img class="footerIzq6Index" src="./assets/img/footerIzq6.png">
   </div>
-  <div class="zonaFooterCentro">
+  <div class="zonaFooterCentroIndex">
     Al acceder, seguir utilizando o navegar en este sitio Web, el cliente acepta que utilicemos ciertas cookies
     de navegación para mejorar su experiencia con nosotros. Betnat solo utilizará cookies que mejoren su 
     experiencia y no aquellas que interfieran con su privacidad.
-    <div class="enlaces">Política de privacidad   |   Política de cookies   |   Reglas y Regulaciones   |   Términos y condiciones  |   Juega con responsabilidad</div>
-    <div class="copyright">Copyright © 2022 Betnat. Todos los derechos reservados.</div>
+    <div class="enlacesIndex">Política de privacidad   |   Política de cookies   |   Reglas y Regulaciones   |   Términos y condiciones  |   Juega con responsabilidad</div>
+    <div class="copyrightIndex">Copyright © 2022 Betnat. Todos los derechos reservados.</div>
   </div>
-  <div class="zonaFooterDer">
-    <img class="footerDer1" src="./assets/img/footerDer1.png">
-    <img class="footerDer2" src="./assets/img/footerDer2.png"><br>
-    <img class="footerDer3" src="./assets/img/footerDer3.png"><br>
-    <img class="footerDer4" src="./assets/img/footerDer4.png">
+  <div class="zonaFooterDerIndex">
+    <img class="footerDer1Index" src="./assets/img/footerDer1.png">
+    <img class="footerDer2Index" src="./assets/img/footerDer2.png"><br>
+    <img class="footerDer3Index" src="./assets/img/footerDer3.png"><br>
+    <img class="footerDer4Index" src="./assets/img/footerDer4.png">
   </div>
 </footer>
 

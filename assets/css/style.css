@@ -1,34 +1,578 @@
 @font-face {
-  font-family: 'Roboto';
-  src: url('./fonts/Roboto.ttf') format('truetype');
-  font-style: normal;
-  font-weight: normal;
+font-family: "Roboto_Regular";
+  src: url(../fonts/Roboto-Regular.ttf);
 }
 
-html {
-  font-family: Roboto;
+@font-face {
+  font-family: "Roboto_BoldItalic";
+    src: url(../fonts/Roboto-BlackItalic.ttf);
 }
+
+@font-face {
+  font-family: "Roboto_Italic";
+    src: url(../fonts/Roboto-Italic.ttf);
+}
+
+:root {
+  --color1: #3C3C3C; /* OCUPADO */
+  --color2: rgb(100, 100, 100);
+  --color3: rgb(255, 255, 255);
+  --color4: #3C3C3C;
+  --color5: #efefef;
+
+}
+
+.bg-color1{
+  background-color: var(--color1);
+}
+
+.bg-color2{
+  background-color: var(--color2);
+}
+
+.text-color1{
+  color: var(--color1);
+}
+
+.text-color2{
+  color: var(--color2);
+}
+
+.text-color3{
+  color: var(--color3);
+}
+
+/* Classes modificades sobre bootstrap */
+
+.navbar-dark .navbar-nav .nav-link{
+  color: var(--color3);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover{
+  color: #A7A7A7;
+}
+
+.navbar-dark .navbar-nav .nav-link:active{
+  color: var(--color3);
+}
+
+.btn-danger{
+  
+}
+
+.btn-danger:hover{
+  
+}
+
+.btn-outline-primary{
+  
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary.dropdown-toggle.show{
+  
+}
+
+.btn-primary{
+  
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.dropdown-toggle.show{
+  
+}
+
+/**************************** FIN PAGINA INDEX ****************************/
+
+/********* INICIO CSS PERSONALIZADO LG *********/
+
+/* INICIO CSS NAV */
 
 body {
-  background-color: #3c3c3c;
+  font-family: "Roboto_Regular";
+  background-color: #171717;  
 }
 
-hr {
-  border: 0; 
-  height: 12px; 
-  box-shadow: inset 0 12px 12px -12px #356F85;
+.separacion {
+  margin-right: 50px;
 }
 
+/* FIN CSS NAV */
 
-table {
+/* INICIO CSS BANNER */
+
+#bannerIndex {
+  background: url("../img/banner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-bottom: 15px;
+}
+
+.capaOscuraBannerIndex {
+  background: rgb(31, 31, 31, 0.7);
+  height: 275px;
+}
+
+.formatoTextoBannerIndex {
+  float: left;
+  margin-left: 65%;
+  margin-top: 50px;
+}
+
+.tituloBannerIndex {
+  font-size: 25px;
+}
+
+.botonCrearApuestaIndex {
+  background-color: #00B9FF;
+  border-radius: 2.5px;
+  border: 0px;
+  color: white;
+  padding: 7.5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 35px;
+  float: right;
+  margin-right: 175px;
+}
+
+.botonCrearApuestaIndex:hover{
+  background-color: #356F86;
+}
+
+/* FIN CSS BANNER */
+
+/* INICIO CSS SECCION 1 */
+
+#seccion1Index {
+  background: url("../img/seccion1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-bottom: 15px;
+}
+
+.capaOscuraSeccion1Index {
+  background: rgb(31, 31, 31, 0.7);
+  height: 275px;
+}
+
+.formatoTextoSeccion1Index {
+  float: left;
+  margin-left: 15%;
+  margin-top: 30px;
+}
+
+.tituloSeccion1Index {
+  font-size: 30px;
+}
+
+.escudoIndex {
+  width: 25px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.botonesSeleccionesIndex {
+  margin-left: 275px;
+  display: flex;
+}
+
+.botonCuotaIndex {
+  background-color: #00B9FF;
+  border-radius: 2.5px;
+  border: 0px;
+  color: white;
+  padding: 7.5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 35px;
+  float: right;
+  margin-right: 50px;
+}
+
+.botonCuotaIndex:hover {
+  background-color: #356F86;
+}
+
+/* FIN CSS SECCION 1 */
+
+/* INICIO CSS SECCION 2 */
+
+#seccion2Index {
+  background: url("../img/seccion2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 20px;
+}
+
+.capaOscuraSeccion2Index {
+  background: rgb(31, 31, 31, 0.7);
+  height: 175px;
+}
+
+/* FIN CSS SECCION 2 */
+
+/* INICIO CSS TEXTOS CENTRALES */
+
+.textoSeccion2y3Index {
+  display: flex;
+}
+
+.textoSeccion2Index, .textoSeccion3Index {
+  margin-left: 20%;
+}
+
+.tituloIzquierdaIndex, .tituloDerechaIndex {
+  color: #00B9FF;
+  text-align: center;
+}
+
+.textoIzquierdaIndex, .textoDerechaIndex {
+  color: white;
+}
+
+/* FIN CSS TEXTOS CENTRALES */
+
+/* INICIO CSS SECCION 3 */
+
+#seccion3Index {
+  background: url("../img/seccion3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.capaOscuraSeccion3Index {
+  background: rgb(31, 31, 31, 0.7);
+  height: 175px;
+}
+
+/* FIN CSS SECCION 3 */
+
+/* INICIO CSS FOOTER */
+
+.footerIndex {
+  background-color: #3C3C3C;
+  margin-top: 30px;
+  height: 150px;
+  padding-top: 20px;
+  display: flex;
+}
+
+.zonaFooterIzqIndex {
+  margin-left: 60px;
+  margin-right: 20px;
+}
+
+.footerIzq1Index {
+  height: 20px;
+  margin-bottom: 4px;
+}
+
+.footerIzq2Index {
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.footerIzq3Index {
+  height: 11.6px;
+  margin-bottom: 4px;
+}
+
+.footerIzq4Index, .footerIzq5Index, .footerIzq6Index {
+  height: 26px;
+  margin-bottom: 4px;
+}
+
+.zonaFooterCentroIndex {
+  font-size: 12.5px;
+  color: white;
+  text-align: center;
+}
+
+.zonaFooterDerIndex {
+  margin-right: 60px;
+  margin-left: 20px;
+}
+
+.footerDer1Index, .footerDer2Index {
+  height: 21.4px;
+  margin-bottom: 4px;
+}
+
+.footerDer3Index {
+  height: 30px;
+  margin-bottom: 4px;
+}
+
+.footerDer4Index {
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.enlacesIndex {
+  margin-top: 8px;
+  font-size: 12.5px;
+  font-weight: bold;
+}
+
+.copyrightIndex {
+  margin-top: 40px;
+  font-size: 10px;
+}
+
+/* FIN CSS FOOTER */
+
+/********* FINAL CSS PERSONALIZADO LG *********/
+
+/********* INICIO CSS PERSONALIZADO MOBIL *********/
+
+@media (max-width: 768px) {
+
+  /* INICIO CSS BANNER */
+
+  #bannerIndex {
+    margin-bottom: 5px;
+  }
+
+  .capaOscuraBannerIndex {
+    height: 225px;
+    margin-bottom: 10px;
+  }
+
+  .formatoTextoBannerIndex {
+    float: left;
+    margin-left: 170px;
+    margin-top: 10px;
+    padding-top: 30px;
+  }
+
+  .tituloBannerIndex {
+    font-size: 20px;
+  }
+
+  .textoBannerIndex {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .botonCrearApuestaIndex {
+    font-size: 15px;
+    padding: 4px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    margin-top: 10px;
+    float: right;
+    margin-right: 35px;
+  }
+
+  /* FIN CSS BANNER */
+
+  /* INICIO CSS SECCION 1 */
+
+  #seccion1Index {
+    margin-bottom: 2px;
+  }
+
+  .capaOscuraSeccion1Index {
+    height: 200px;
+    margin-bottom: 15px;
+  }
+
+  .formatoTextoSeccion1Index {
+    float: left;
+    margin-left: 85px;
+    margin-top: 0px;
+    padding-top: 25px;
+  }
+
+  .tituloSeccion1Index {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .textoSeccion1Index {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+ 
+  .escudoIndex {
+    width: 20px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+  }
+
+  .botonesSeleccionesIndex {
+    margin-left: 115px;
+  }
+
+  .botonCuotaIndex {
+    font-size: 15px;
+    padding: 2px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    margin-top: 5px;
+    margin-right: 20px;
+  }
+
+  /* FIN CSS SECCION 1 */
+
+  /* INICIO CSS SECCION 2 */
+
+  #seccion2Index {
+    margin-bottom: 2px;
+  }
+
+  .capaOscuraSeccion2Index {
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  /* FIN CSS SECCION 2 */
+
+  /* INICIO CSS TEXTOS CENTRALES */
+
+  .textoSeccion2y3Index {
+    font-size: 15px;
+    display: block;
+    text-align: center;
+  }
+
+  .textoSeccion2Index, .textoSeccion3Index {
+    margin-bottom: 50px;
+    margin-left: 0px;
+  }
+
+  /* FIN CSS TEXTOS CENTRALES */
+
+  /* INICIO CSS SECCION 3 */
+
+  .capaOscuraSeccion3Index {
+    background: rgb(31, 31, 31, 0.7);
+    height: 150px;
+  }
+
+  /* FIN CSS SECCION 3 */
+
+  /* INICIO CSS FOOTER */
+
+  .footerIndex {
+    margin-top: 0px;
+    height: 110px;
+    padding-top: 5px;
+    display: flex;
+  }
+
+  .zonaFooterIzqIndex {
+    display: none;
+  }
+
+  .zonaFooterCentroIndex {
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .zonaFooterDerIndex {
+    display: none;
+  }
+  
+  .enlacesIndex {
+    margin-top: 8px;
+    font-size: 8px;
+    font-weight: bold;
+  }
+  
+  .copyrightIndex {
+    margin-top: 20px;
+    font-size: 10px;
+  }
+
+  /* FIN CSS FOOTER */
+
+  /********* FINAL CSS PERSONALIZADO MOBIL *********/
+
+}
+
+/**************************** FIN PAGINA INDEX ****************************/
+
+/**************************** PAGINA TABLA EVENTOS ****************************/
+
+/**************** INICIO CSS PERSONALIZADO LG ****************/
+
+/* INICIO CSS BANNER */
+
+#bannerTablaEventos {
+  background: url("../img/fondoEventosDestacados.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-bottom: 15px;
+}
+
+.capaOscuraBannerTablaEventos {
+  background: rgb(31, 31, 31, 0.7);
+  height: 275px;
+}
+
+.formatoTextoTablaEventos {
+  float: left;
+  margin-top: 11%;
+  margin-left: 17.5%;
+  display: flex;
+}
+
+.tituloBannerTablaEventos {
+  font-size: 30px;
+  font-family: "Roboto_BoldItalic";
+  color: #C2C2C2;
+}
+
+.seleccionesEventos {
+  background-color: #00B9FF;
+  border-radius: 2.5px;
+  border: 0px;
+  color: white;
+  padding: 7.5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 800px;
+}
+
+.seleccionesEventos:hover{
+  background-color: #356F86;
+}
+
+/* FIN CSS BANNER */
+
+/* INICIO CSS TABLA */
+
+.tituloTablaEventos {
+  color:#00B9FF;
+  text-align: left;
+  font-size: 25px;
+  font-family: "Roboto_Italic";
+  background-color: #171717;
+}
+
+.numeroTablaEventos {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-family: "Roboto_Regular";
+  background-color: #171717;
+}
+
+.tablaTablaEventos {
   border-collapse: collapse;
-  width: 100%;
+  width: 70%;
+  height: 20%;
   background-color: white;
-  border-style: solid ; 
-  border-top-width: 3px; 
-  border-right-width: 10px; 
-  border-bottom-width:10px; 
-  border-left-width: 10px;
+  margin-left: 15%;
+  vertical-align: middle;
 }
   
 td, th {
@@ -36,117 +580,1291 @@ td, th {
   padding: 8px;
 }
 
-th {
-  background-color: #356F85;
+.cuotas {
+  background-color: #00B9FF;
+  color: white;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 2.5px;
+  border: 0px;
+  margin-top: 15%;
 }
 
-tr:hover {
-  background-color: gray;
+.cuotas:hover{
+  background-color: #356F86;
+}
+
+/* FIN CSS TABLA */
+
+/* INICIO CSS FOOTER */
+
+.footerTablaEventos {
+  background-color: #3C3C3C;
+  margin-top: 30px;
+  height: 150px;
+  padding-top: 20px;
+  display: flex;
+}
+
+.zonaFooterIzqTablaEventos {
+  margin-left: 60px;
+  margin-right: 20px;
+}
+
+.footerIzq1TablaEventos {
+  height: 20px;
+  margin-bottom: 4px;
+}
+
+.footerIzq2TablaEventos {
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.footerIzq3TablaEventos {
+  height: 11.6px;
+  margin-bottom: 4px;
+}
+
+.footerIzq4TablaEventos, .footerIzq5TablaEventos, .footerIzq6TablaEventos {
+  height: 26px;
+  margin-bottom: 4px;
+}
+
+.zonaFooterCentroTablaEventos {
+  font-size: 12.5px;
+  color: white;
+  text-align: center;
+}
+
+.zonaFooterDerTablaEventos {
+  margin-right: 60px;
+  margin-left: 20px;
+}
+
+.footerDer1TablaEventos, .footerDer2TablaEventos {
+  height: 21.4px;
+  margin-bottom: 4px;
+}
+
+.footerDer3TablaEventos {
+  height: 30px;
+  margin-bottom: 4px;
+}
+
+.footerDer4TablaEventos {
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.enlacesTablaEventos {
+  margin-top: 8px;
+  font-size: 12.5px;
+  font-weight: bold;
+}
+
+.copyrightTablaEventos {
+  margin-top: 40px;
+  font-size: 10px;
+}
+
+/* FIN CSS FOOTER */
+
+/**************** FINAL CSS PERSONALIZADO LG ****************/
+
+/**************** INICIO CSS PERSONALIZADO MOBIL ****************/
+
+@media (max-width: 768px) {
+
+  /* INICIO CSS BANNER */
+
+  #bannerTablaEventos {
+    margin-bottom: 0px;
+  }
+
+  .capaOscuraBannerTablaEventos {
+    height: 150px;
+    margin-bottom: 10px;
+  }
+
+  .formatoTextoTablaEventos {
+    display: block;
+    margin-top: 6%;
+  }
+  
+  .tituloBannerTablaEventos {
+    font-size: 30px;
+  }
+
+  .seleccionesEventos {
+    font-size: 15px;
+    padding: 4px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+
+  /* FIN CSS BANNER */
+
+  /* INICIO CSS TABLA */
+
+  .tituloTablaEventos {
+    font-size: 20px;
+  }
+
+  .celdaEscondidaTablaEventos {
+    display: none;
+  }
+
+  /* FIN CSS TABLA */
+
+  /* INICIO CSS SECCION FOOTER */
+
+  .footerTablaEventos {
+    margin-top: 25px;
+    height: 110px;
+    padding-top: 5px;
+    display: flex;
+  }
+
+  .zonaFooterIzqTablaEventos {
+    display: none;
+  }
+
+  .zonaFooterCentroTablaEventos {
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .zonaFooterDerTablaEventos {
+    display: none;
+  }
+  
+  .enlacesTablaEventos {
+    margin-top: 8px;
+    font-size: 8px;
+    font-weight: bold;
+  }
+  
+  .copyrightTablaEventos {
+    margin-top: 20px;
+    font-size: 10px;
+  }
+  
+  /* FIN CSS FOOTER */
+
+  /**************** FINAL CSS PERSONALIZADO MOBIL ****************/
+
+}
+
+/**************************** FIN PAGINA TABLA EVENTOS ****************************/
+
+/**************************** PAGINA SELECCION EVENTOS ****************************/
+
+/**************** INICIO CSS PERSONALIZADO LG ****************/
+
+/* INICIO CSS BANNER */
+
+#bannerSeleccionApuesta {
+  background: url("../img/fondoEventosDestacados.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-bottom: 20px;
+}
+
+.capaOscuraBannerSeleccionApuesta {
+  background: rgb(31, 31, 31, 0.7);
+  height: 275px;
+}
+
+.formatoTextoSeleccionApuesta {
+  float: left;
+  margin-top: 11%;
+  margin-left: 17.5%;
+  display: flex;
+}
+
+.tituloBannerSeleccionApuesta {
+  font-size: 30px;
+  font-family: "Roboto_BoldItalic";
+  color: #C2C2C2;
+}
+
+.añadirEventosSeleccionApuesta {
+  background-color: #00B9FF;
+  border-radius: 2.5px;
+  border: 0px;
+  color: white;
+  padding: 7.5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 500px;
+}
+
+.añadirEventosSeleccionApuesta:hover{
+  background-color: #356F86;
+}
+
+/* FIN CSS BANNER */
+
+/* INICIO CSS TABLA */
+
+.tablaSeleccionadosLGSeleccionApuesta {
+  border-collapse: collapse;
+  width: 60%;
+  height: 10%;
+  background-color: white;
+  margin-left: 20%;
+  vertical-align: middle;
 }
   
-tr:nth-child(even) {
-  background-color: #cdcdcd;
-}
-
-tr:nth-child(even):hover {
-  background-color: gray;
-}
-
-input {
-    margin-top: 10px;
-    box-shadow: 1.5px 1.5px 1.5px black;
-}
-
-img {
-  height: 35;
-  width: 35;
-}
-
-h2 {
-  font-family: arial, sans-serif;
-  text-decoration: underline;
-  color: white;
-}
-
-h5 {
+td, th {
   text-align: center;
+  padding: 8px;
+}
+
+.tablaSeleccionadosMobilSeleccionApuesta {
+  display: none;
+}
+
+.cruzSeleccionApuesta {
+  background-color: transparent;
+  border: 0px;
+  float: right; 
+}
+
+.formularioSeleccionApuesta {
   margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.betSeleccionApuesta {
+  background-color: #00B9FF;
+  border-radius: 2.5px;
+  border: 0px;
   color: white;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.bet {
-  background-color: green;
+.combinadaBetnatSeleccionApuesta {
+  color: #00B9FF;
+  font-family: "Roboto_BoldItalic";
+  font-size: 20px;
+}
+
+/* FIN CSS TABLA */
+
+/* INICIO CSS FOOTER */
+
+.footerSeleccionApuesta {
+  background-color: #3C3C3C;
+  height: 150px;
+  padding-top: 20px;
+  display: flex;
+  margin-top: 485px;
+}
+
+.zonaFooterIzqSeleccionApuesta {
+  margin-left: 60px;
+  margin-right: 20px;
+}
+
+.footerIzq1SeleccionApuesta {
+  height: 20px;
+  margin-bottom: 4px;
+}
+
+.footerIzq2SeleccionApuesta {
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.footerIzq3SeleccionApuesta {
+  height: 11.6px;
+  margin-bottom: 4px;
+}
+
+.footerIzq4SeleccionApuesta, .footerIzq5SeleccionApuesta, .footerIzq6SeleccionApuesta {
+  height: 26px;
+  margin-bottom: 4px;
+}
+
+.zonaFooterCentroSeleccionApuesta {
+  font-size: 12.5px;
   color: white;
-  font-family: arial, sans-serif;
-}
-
-.del {
-  background-color: red;
-  color: white;
-  font-family: arial, sans-serif;
-}
-
-.logo {
-  height: 50px;
-  width: 175px;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-
-.cantidadSelecciones {
-  float: right;
-  height: 50px;
-  width: 175px;
-  background-color: #356F85;
-  font-weight: bolder;
-  color: white;
-  font-family: 'Roboto';
-  font-size: 17px;
-  margin-right: 10px;
-  margin-top: 10px;
-}
-
-.realizarMasApuestas {
-  float: right;
-  height: 80px;
-  width: 210px;
-  background-color: #356F85;
-  font-weight: bolder;
-  color: white;
-  font-family: 'Roboto';
-  font-size: 17px;
-  margin-right: 10px;
-}
-
-a {
-  text-decoration: none;
-  color: black
-}
-
-footer {
-  background-color: black;
-  position: absolute;
-  bottom: 0;
-  margin-right: 5px;
-  width: 100%;
-  color: white;
-  padding-top: 30px;
-}
-
-.textoFooter {
   text-align: center;
 }
 
-html {
-  min-height: 100%;
-  position: relative;
+.zonaFooterDerSeleccionApuesta {
+  margin-right: 60px;
+  margin-left: 20px;
 }
 
-body {
-  margin: 0;
-  margin-bottom: 10px;
+.footerDer1SeleccionApuesta, .footerDer2SeleccionApuesta {
+  height: 21.4px;
+  margin-bottom: 4px;
 }
 
-input:hover {
-  cursor: pointer;
+.footerDer3SeleccionApuesta {
+  height: 30px;
+  margin-bottom: 4px;
 }
+
+.footerDer4SeleccionApuesta {
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.enlacesSeleccionApuesta {
+  margin-top: 8px;
+  font-size: 12.5px;
+  font-weight: bold;
+}
+
+.copyrightSeleccionApuesta {
+  margin-top: 40px;
+  font-size: 10px;
+}
+
+/* FIN CSS FOOTER */
+
+/**************** INICIO CSS PERSONALIZADO MOBIL ****************/
+
+@media (max-width: 768px) {
+
+  /* INICIO CSS BANNER */
+
+  #bannerSeleccionApuesta {
+    margin-bottom: 0px;
+  }
+
+  .capaOscuraBannerSeleccionApuesta {
+    height: 150px;
+    margin-bottom: 10px;
+  }
+
+  .formatoTextoSeleccionApuesta {
+    display: block;
+    margin-top: 6%;
+  }
+
+  .tituloBannerSeleccionApuesta {
+    font-size: 30px;
+  }
+
+  .añadirEventosSeleccionApuesta {
+    font-size: 15px;
+    padding: 4px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+
+  /* FIN CSS BANNER */
+
+  /* INICIO CSS TABLA */
+
+  .tablaSeleccionadosLGSeleccionApuesta {
+    display: none;
+  }
+
+  .tablaSeleccionadosMobilSeleccionApuesta {
+    display:inline-table;
+    width: 90%;
+    height: 10%;
+    background-color: white;
+    margin-left: 3%;
+    text-align: center;
+  }
+
+  .cruzSeleccionApuesta {
+    float: left;
+    border: 1px solid black;
+    margin-left: 10px;
+  }
+
+  .formularioSeleccionApuesta {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  /* FIN CSS TABLA */
+
+  /* INICIO CSS SECCION FOOTER */
+
+  .footerSeleccionApuesta {
+    margin-top: 640px;
+    height: 110px;
+    padding-top: 5px;
+    display: flex;
+  }
+
+  .zonaFooterIzqSeleccionApuesta {
+    display: none;
+  }
+
+  .zonaFooterCentroSeleccionApuesta {
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .zonaFooterDerSeleccionApuesta {
+    display: none;
+  }
+  
+  .enlacesSeleccionApuesta {
+    margin-top: 8px;
+    font-size: 8px;
+    font-weight: bold;
+  }
+  
+  .copyrightSeleccionApuesta {
+    margin-top: 20px;
+    font-size: 10px;
+  }
+  
+  /* FIN CSS FOOTER */
+
+  /**************** FINAL CSS PERSONALIZADO MOBIL ****************/
+
+}
+
+/**************** FINAL CSS PERSONALIZADO LG ****************/
+
+/**************************** FIN PAGINA MIS APUESTAS ****************************/
+
+/**************************** PAGINA MIS APUESTAS ****************************/
+
+/* INICIO CSS BANNER */
+
+#bannerMisApuestas {
+  background: url("../img/fondoEventosDestacados.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-bottom: 40px;
+}
+
+.capaOscuraBannerMisApuestas {
+  background: rgb(31, 31, 31, 0.7);
+  height: 275px;
+}
+
+.formatoTextoMisApuestas {
+  float: left;
+  margin-top: 11%;
+  margin-left: 17.5%;
+  display: flex;
+}
+
+.tituloBannerMisApuestas {
+  font-size: 30px;
+  font-family: "Roboto_BoldItalic";
+  color: #C2C2C2;
+}
+
+.cerrarApuestaMisApuestas {
+  background-color: #00B9FF;
+  border-radius: 2.5px;
+  border: 0px;
+  color: white;
+  padding: 7.5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+  margin-left: 5%;
+}
+
+.cerrarApuestaMisApuestas:hover{
+  background-color: #356F86;
+}
+
+.cerrarTodasMisApuestas {
+  background-color: #00B9FF;
+  border-radius: 2.5px;
+  border: 0px;
+  color: white;
+  padding: 7.5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 500px;
+}
+
+.cerrarTodasMisApuestas:hover{
+  background-color: #356F86;
+}
+
+/* FIN CSS BANNER */
+
+/* INICIO CSS TABLA */
+
+.tablaSeleccionadosLGMisApuestas {
+  border-collapse: collapse;
+  width: 60%;
+  height: 10%;
+  background-color: white;
+  margin-left: 20%;
+  vertical-align: middle;
+}
+  
+td, th {
+  text-align: center;
+  padding: 8px;
+}
+
+.tablaSeleccionadosMobilMisApuestas {
+  display: none;
+}
+
+/* FIN CSS TABLA */
+
+/* INICIO CSS SECCION2 */
+
+#seccion2MisApuestas {
+  background: url("../img/seccion4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 210px;
+}
+
+.capaOscuraSeccion2MisApuestas {
+  background: rgb(31, 31, 31, 0.7);
+  height: 275px;
+}
+
+/* FIN CSS SECCION 2 */
+
+/* INICIO CSS SECCION FOOTER */
+
+.footerMisApuestas {
+  background-color: #3C3C3C;
+  height: 150px;
+  padding-top: 20px;
+  display: flex;
+}
+
+.zonaFooterIzqMisApuestas {
+  margin-left: 60px;
+  margin-right: 20px;
+}
+
+.footerIzq1MisApuestas {
+  height: 20px;
+  margin-bottom: 4px;
+}
+
+.footerIzq2MisApuestas {
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.footerIzq3MisApuestas {
+  height: 11.6px;
+  margin-bottom: 4px;
+}
+
+.footerIzq4MisApuestas, .footerIzq5MisApuestas, .footerIzq6MisApuestas {
+  height: 26px;
+  margin-bottom: 4px;
+}
+
+.zonaFooterCentroMisApuestas {
+  font-size: 12.5px;
+  color: white;
+  text-align: center;
+}
+
+.zonaFooterDerMisApuestas {
+  margin-right: 60px;
+  margin-left: 20px;
+}
+
+.footerDer1MisApuestas, .footerDer2MisApuestas {
+  height: 21.4px;
+  margin-bottom: 4px;
+}
+
+.footerDer3MisApuestas {
+  height: 30px;
+  margin-bottom: 4px;
+}
+
+.footerDer4MisApuestas {
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.enlacesMisApuestas {
+  margin-top: 8px;
+  font-size: 12.5px;
+  font-weight: bold;
+}
+
+.copyrightMisApuestas {
+  margin-top: 40px;
+  font-size: 10px;
+}
+
+/* FIN CSS FOOTER */
+
+/**************** INICIO CSS PERSONALIZADO MOBIL ****************/
+
+@media (max-width: 768px) {
+
+  /* INICIO CSS BANNER */
+
+  #bannerMisApuestas {
+    margin-bottom: 0px;
+  }
+
+  .capaOscuraBannerMisApuestas {
+    height: 150px;
+    margin-bottom: 10px;
+  }
+
+  .formatoTextoMisApuestas {
+    display: block;
+    margin-top: 6%;
+  }
+
+  .tituloBannerMisApuestas {
+    font-size: 30px;
+  }
+
+  .cerrarTodasMisApuestas {
+    font-size: 15px;
+    padding: 4px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+
+  /* FIN CSS BANNER */
+
+  /* INICIO CSS TABLA */
+
+  .tablaSeleccionadosMobilMisApuestas {
+    display: inline-table;
+    width: 100%;
+    margin-left: 0%;
+    font-size: 15px;
+    border-collapse: collapse;
+    height: 10%;
+    background-color: white;
+    vertical-align: middle;
+  }
+
+  .tablaSeleccionadosLGMisApuestas {
+    display: none;
+  }
+ 
+  /* FIN CSS TABLA */
+
+  /* INICIO CSS SECCION2 */
+
+  #seccion2MisApuestas {
+    margin-bottom: 0px;
+    margin-top: 465px;
+  }
+
+  .capaOscuraSeccion2MisApuestas {
+    background: rgb(31, 31, 31, 0.7);
+    height: 175px;
+  }
+
+  /* FIN CSS SECCION2 */
+
+  /* INICIO CSS SECCION FOOTER */
+
+  .footerMisApuestas {
+    margin-top: 0px;
+    height: 110px;
+    padding-top: 5px;
+    display: flex;
+  }
+
+  .zonaFooterIzqMisApuestas {
+    display: none;
+  }
+
+  .zonaFooterCentroMisApuestas {
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .zonaFooterDerMisApuestas {
+    display: none;
+  }
+  
+  .enlacesMisApuestas {
+    margin-top: 8px;
+    font-size: 8px;
+    font-weight: bold;
+  }
+  
+  .copyrightMisApuestas {
+    margin-top: 20px;
+    font-size: 10px;
+  }
+
+  /* FIN CSS FOOTER */
+
+  /**************** FINAL CSS PERSONALIZADO MOBIL ****************/
+
+}
+
+/**************************** FIN PAGINA MIS APUESTAS ****************************/
+
+/**************************** INICIO PAGINA RESGUARDO COMBINADA ****************************/
+
+  /* INICIO CSS BANNER */
+
+  #bannerResguardoCombinada {
+    background: url("../img/fondoEventosDestacados.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    margin-bottom: 40px;
+  }
+  
+  .capaOscuraBannerResguardoCombinada {
+    background: rgb(31, 31, 31, 0.7);
+    height: 275px;
+  }
+  
+  .formatoTextoResguardoCombinada {
+    float: left;
+    margin-top: 11%;
+    margin-left: 17.5%;
+    display: flex;
+  }
+  
+  .tituloBannerResguardoCombinada {
+    font-size: 30px;
+    font-family: "Roboto_BoldItalic";
+    color: #C2C2C2;
+  }
+  
+  .realizarMasApuestarResguardoCombinada {
+    background-color: #00B9FF;
+    border-radius: 2.5px;
+    border: 0px;
+    color: white;
+    padding: 7.5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 500px;
+  }
+  
+  .realizarMasApuestarResguardoCombinada:hover{
+    background-color: #356F86;
+  }
+
+  /* FIN CSS BANNER */
+
+  /* INICIO CSS TABLA */
+
+  .tablaSeleccionadosLGResguardoCombinada {
+    border-collapse: collapse;
+    width: 60%;
+    height: 10%;
+    background-color: white;
+    margin-left: 20%;
+    vertical-align: middle;
+  }
+    
+  td, th {
+    text-align: center;
+    padding: 8px;
+  }
+
+  .tablaSeleccionadosMobilResguardoCombinada {
+    display: none;
+  }
+
+  /* FIN CSS TABLA */
+
+  /* INICIO CSS SECCION2 */
+  
+  #seccion2ResguardoCombinada {
+    background: url("../img/seccion4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 55px;
+  }
+  
+  .capaOscuraSeccion2ResguardoCombinada {
+    background: rgb(31, 31, 31, 0.7);
+    height: 275px;
+  }
+  
+  /* FIN CSS SECCION 2 */
+
+  /* INICIO CSS SECCION FOOTER */
+  
+  .footerResguardoCombinada {
+    background-color: #3C3C3C;
+    height: 150px;
+    padding-top: 20px;
+    display: flex;
+  }
+  
+  .zonaFooterIzqResguardoCombinada {
+    margin-left: 60px;
+    margin-right: 20px;
+  }
+  
+  .footerIzq1ResguardoCombinada {
+    height: 20px;
+    margin-bottom: 4px;
+  }
+  
+  .footerIzq2ResguardoCombinada {
+    height: 25px;
+    margin-bottom: 4px;
+  }
+  
+  .footerIzq3ResguardoCombinada {
+    height: 11.6px;
+    margin-bottom: 4px;
+  }
+  
+  .footerIzq4ResguardoCombinada, .footerIzq5ResguardoCombinada, .footerIzq6ResguardoCombinada {
+    height: 26px;
+    margin-bottom: 4px;
+  }
+  
+  .zonaFooterCentroResguardoCombinada {
+    font-size: 12.5px;
+    color: white;
+    text-align: center;
+  }
+  
+  .zonaFooterDerResguardoCombinada {
+    margin-right: 60px;
+    margin-left: 20px;
+  }
+  
+  .footerDer1ResguardoCombinada, .footerDer2ResguardoCombinada {
+    height: 21.4px;
+    margin-bottom: 4px;
+  }
+  
+  .footerDer3ResguardoCombinada {
+    height: 30px;
+    margin-bottom: 4px;
+  }
+  
+  .footerDer4ResguardoCombinada {
+    height: 25px;
+    margin-bottom: 4px;
+  }
+  
+  .enlacesResguardoCombinada {
+    margin-top: 8px;
+    font-size: 12.5px;
+    font-weight: bold;
+  }
+  
+  .copyrightResguardoCombinada {
+    margin-top: 40px;
+    font-size: 10px;
+  }
+
+/* FIN CSS FOOTER */
+
+/**************** INICIO CSS PERSONALIZADO MOBIL ****************/
+  
+  @media (max-width: 768px) {
+  
+    /* INICIO CSS BANNER */
+
+    #bannerResguardoCombinada {
+      margin-bottom: 0px;
+    }
+  
+    .capaOscuraBannerResguardoCombinada {
+      height: 170px;
+      margin-bottom: 10px;
+    }
+
+    .formatoTextoResguardoCombinada {
+      display: block;
+      margin-top: 6%;
+    }
+
+    .tituloBannerResguardoCombinada {
+      font-size: 30px;
+    }
+  
+    .realizarMasApuestarResguardoCombinada {
+      font-size: 15px;
+      padding: 4px;
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+      margin-top: 10px;
+      margin-left: 0px;
+    }
+    
+  
+    /* FIN CSS BANNER */
+
+    /* INICIO CSS TABLA */
+
+    .tablaSeleccionadosMobilResguardoCombinada {
+      display: inline-table;
+      width: 100%;
+      margin-left: 0%;
+      border-collapse: collapse;
+      height: 10%;
+      background-color: white;
+      vertical-align: middle;
+    }
+
+    .tablaSeleccionadosLGResguardoCombinada {
+      display: none;
+    }
+
+    /* FIN CSS TABLA */
+
+    /* INICIO CSS SECCION2 */
+  
+    #seccion2ResguardoCombinada {
+      margin-bottom: 0px;
+      margin-top: 261px;
+    }
+
+    .capaOscuraSeccion2ResguardoCombinada {
+      background: rgb(31, 31, 31, 0.7);
+      height: 175px;
+    }
+
+    /* FIN CSS SECCION2 */
+
+    /* INICIO CSS SECCION FOOTER */
+  
+    .footerResguardoCombinada {
+      margin-top: 0px;
+      height: 110px;
+      padding-top: 5px;
+      display: flex;
+    }
+  
+    .zonaFooterIzqResguardoCombinada {
+      display: none;
+    }
+  
+    .zonaFooterCentroResguardoCombinada {
+      font-size: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    .zonaFooterDerResguardoCombinada {
+      display: none;
+    }
+    
+    .enlacesResguardoCombinada {
+      margin-top: 8px;
+      font-size: 8px;
+      font-weight: bold;
+    }
+    
+    .copyrightResguardoCombinada {
+      margin-top: 20px;
+      font-size: 10px;
+    }
+    
+    /* FIN CSS FOOTER */
+
+  /**************** FINAL CSS PERSONALIZADO MOBIL ****************/
+
+}
+
+
+/**************************** FIN PAGINA RESGUARDO COMBINADA ****************************/
+
+/**************************** INICIO PAGINA RESGUARDO SIMPLE ****************************/
+
+/* INICIO CSS BANNER */
+
+#bannerResguardoSimple {
+  background: url("../img/fondoEventosDestacados.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-bottom: 40px;
+}
+
+.capaOscuraBannerResguardoSimple {
+  background: rgb(31, 31, 31, 0.7);
+  height: 275px;
+}
+
+.formatoTextoResguardoSimple {
+  float: left;
+  margin-top: 11%;
+  margin-left: 17.5%;
+  display: flex;
+}
+
+.tituloBannerResguardoSimple {
+  font-size: 30px;
+  font-family: "Roboto_BoldItalic";
+  color: #C2C2C2;
+}
+
+.realizarMasApuestasResguardoSimple {
+  background-color: #00B9FF;
+  border-radius: 2.5px;
+  border: 0px;
+  color: white;
+  padding: 7.5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 500px;
+}
+
+.realizarMasApuestasResguardoSimple:hover{
+  background-color: #356F86;
+}
+
+/* FIN CSS BANNER */
+
+/* INICIO CSS TABLA */
+
+.tablaSeleccionadosLGResguardoSimple {
+  border-collapse: collapse;
+  width: 60%;
+  height: 10%;
+  background-color: white;
+  margin-left: 20%;
+  vertical-align: middle;
+}
+  
+td, th {
+  text-align: center;
+  padding: 8px;
+}
+
+.tablaSeleccionadosMobilResguardoSimple {
+  display: none;
+}
+
+/* FIN CSS TABLA */
+
+/* INICIO CSS SECCION2 */
+
+#seccion2ResguardoSimple {
+  background: url("../img/seccion4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 55px;
+}
+
+.capaOscuraSeccion2ResguardoSimple {
+  background: rgb(31, 31, 31, 0.7);
+  height: 275px;
+}
+
+/* FIN CSS SECCION 2 */
+
+/* INICIO CSS SECCION FOOTER */
+
+.footerResguardoSimple {
+  background-color: #3C3C3C;
+  height: 150px;
+  padding-top: 20px;
+  display: flex;
+}
+
+.zonaFooterIzqResguardoSimple {
+  margin-left: 60px;
+  margin-right: 20px;
+}
+
+.footerIzq1ResguardoSimple {
+  height: 20px;
+  margin-bottom: 4px;
+}
+
+.footerIzq2ResguardoSimple {
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.footerIzq3ResguardoSimple {
+  height: 11.6px;
+  margin-bottom: 4px;
+}
+
+.footerIzq4ResguardoSimple, .footerIzq5ResguardoSimple, .footerIzq6ResguardoSimple {
+  height: 26px;
+  margin-bottom: 4px;
+}
+
+.zonaFooterCentroResguardoSimple {
+  font-size: 12.5px;
+  color: white;
+  text-align: center;
+}
+
+.zonaFooterDerResguardoSimple {
+  margin-right: 60px;
+  margin-left: 20px;
+}
+
+.footerDer1ResguardoSimple, .footerDer2ResguardoSimple {
+  height: 21.4px;
+  margin-bottom: 4px;
+}
+
+.footerDer3ResguardoSimple {
+  height: 30px;
+  margin-bottom: 4px;
+}
+
+.footerDer4ResguardoSimple {
+  height: 25px;
+  margin-bottom: 4px;
+}
+
+.enlacesResguardoSimple {
+  margin-top: 8px;
+  font-size: 12.5px;
+  font-weight: bold;
+}
+
+.copyrightResguardoSimple {
+  margin-top: 40px;
+  font-size: 10px;
+}
+
+/* FIN CSS FOOTER */
+
+/**************** INICIO CSS PERSONALIZADO MOBIL ****************/
+
+@media (max-width: 768px) {
+
+  /* INICIO CSS BANNER */
+
+  #bannerResguardoSimple {
+    margin-bottom: 0px;
+  }
+
+  .capaOscuraBannerResguardoSimple {
+    height: 150px;
+    margin-bottom: 10px;
+  }
+
+  .formatoTextoResguardoSimple {
+    display: block;
+    margin-top: 6%;
+  }
+
+  .tituloBannerResguardoSimple {
+    font-size: 30px;
+  }
+
+  .realizarMasApuestasResguardoSimple {
+    font-size: 15px;
+    padding: 4px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+
+  /* FIN CSS BANNER */
+
+  /* INICIO CSS TABLA */
+
+  .tablaSeleccionadosMobilResguardoSimple {
+    display: inline-table;
+    width: 80%;
+    margin-left: 10%;
+    border-collapse: collapse;
+    height: 10%;
+    background-color: white;
+    vertical-align: middle;
+  }
+
+  .tablaSeleccionadosLGResguardoSimple {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .celdaEscondidaResguardoSimple {
+    display: none;
+  }
+
+  /* FIN CSS TABLA */
+
+  /* INICIO CSS SECCION2 */
+
+  #seccion2ResguardoSimple {
+    margin-bottom: 0px;
+    margin-top: 190px;
+  }
+
+  .capaOscuraSeccion2ResguardoSimple {
+    background: rgb(31, 31, 31, 0.7);
+    height: 175px;
+  }
+
+  /* FIN CSS SECCION2 */
+
+  /* INICIO CSS SECCION FOOTER */
+
+  .footerResguardoSimple {
+    margin-top: 0px;
+    height: 110px;
+    padding-top: 5px;
+    display: flex;
+  }
+
+  .zonaFooterIzqResguardoSimple {
+    display: none;
+  }
+
+  .zonaFooterCentroResguardoSimple {
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .zonaFooterDerResguardoSimple {
+    display: none;
+  }
+  
+  .enlacesResguardoSimple {
+    margin-top: 8px;
+    font-size: 8px;
+    font-weight: bold;
+  }
+  
+  .copyrightResguardoSimple {
+    margin-top: 20px;
+    font-size: 10px;
+  }
+    
+  /* FIN CSS FOOTER */
+
+  /**************** FINAL CSS PERSONALIZADO MOBIL ****************/
+
+}
+
+/**************************** FIN PAGINA RESGUARDO SIMPLE ****************************/

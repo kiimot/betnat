@@ -10,11 +10,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/styleResguardoApuestaCombinada.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="screen">
     
     <!--JS-->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="./assets/css/stle.css" type="text/css"/>
 </head>
 <body>
 <header>
@@ -54,12 +53,12 @@ session_start();
 
 ?>
 
-<section id="banner">
-  <div class="capaoscuraBanner1 text-color3">
-    <div class="formato-texto">
-      <h1 class="tituloBanner1">Resguardo Apuesta Combinada</h1>     
+<section id="bannerResguardoCombinada">
+  <div class="capaOscuraBannerResguardoCombinada text-color3">
+    <div class="formatoTextoResguardoCombinada">
+      <h1 class="tituloBannerResguardoCombinada">Resguardo Apuesta Combinada</h1>     
         <form method='get' action="tablaEventos.php"> <!-- Formulario para recoger el valor del input, nos llevará a index.php (nos servira para vaciar los arrays de las sessiones) -->
-            <input name="comeBack" class="crearApuesta" type="submit" value="Realizar mas apuestas" /> <!-- Cuando pulsemos el input, el valor será Realizar mas apuesta -->
+            <input name="comeBack" class="realizarMasApuestarResguardoCombinada" type="submit" value="Realizar mas apuestas" /> <!-- Cuando pulsemos el input, el valor será Realizar mas apuesta -->
         </form>
     </div>
   </div>
@@ -79,7 +78,7 @@ session_start();
             setcookie('cantidadEventoApostado', $cantidadApostadaCombinada, time()+3600);
     ?>
         <br><br>
-        <table class="tablaSeleccionadosLG">
+        <table class="tablaSeleccionadosLGResguardoCombinada">
             <tr>
                 <th></th>
                 <th></th>
@@ -114,7 +113,7 @@ session_start();
             </tr>
         </table>
 
-        <table class="tablaSeleccionadosMobil">
+        <table class="tablaSeleccionadosMobilResguardoCombinada">
             <tr>
                 <td>
                     <?php foreach ($_SESSION['eventos'] as $codigo=>$evento){ ?> <!-- Recorremos todos los eventos seleccionados y mostramos su fecha evento en la misma celda -->
@@ -154,41 +153,31 @@ session_start();
 </section>
 
 
-<section id="seccion2">
-  <div class="capaoscuraSeccion2 text-color3"></div>
+<section id="seccion2ResguardoCombinada">
+  <div class="capaOscuraSeccion2ResguardoCombinada text-color3"></div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-<footer>
-  <div class="zonaFooterIzq">
-    <img class="footerIzq1" src="./assets/img/footerIzq1.png"><br>
-    <img class="footerIzq2" src="./assets/img/footerIzq2.png"><br>
-    <img class="footerIzq3" src="./assets/img/footerIzq3.png"><br>
-    <img class="footerIzq4" src="./assets/img/footerIzq4.png">
-    <img class="footerIzq5" src="./assets/img/footerIzq5.png">
-    <img class="footerIzq6" src="./assets/img/footerIzq6.png">
+<footer class="footerResguardoCombinada">
+  <div class="zonaFooterIzqResguardoCombinada">
+    <img class="footerIzq1ResguardoCombinada" src="./assets/img/footerIzq1.png"><br>
+    <img class="footerIzq2ResguardoCombinada" src="./assets/img/footerIzq2.png"><br>
+    <img class="footerIzq3ResguardoCombinada" src="./assets/img/footerIzq3.png"><br>
+    <img class="footerIzq4ResguardoCombinada" src="./assets/img/footerIzq4.png">
+    <img class="footerIzq5ResguardoCombinada" src="./assets/img/footerIzq5.png">
+    <img class="footerIzq6ResguardoCombinada" src="./assets/img/footerIzq6.png">
   </div>
-  <div class="zonaFooterCentro">
+  <div class="zonaFooterCentroResguardoCombinada">
     Al acceder, seguir utilizando o navegar en este sitio Web, el cliente acepta que utilicemos ciertas cookies
     de navegación para mejorar su experiencia con nosotros. Betnat solo utilizará cookies que mejoren su 
     experiencia y no aquellas que interfieran con su privacidad.
-    <div class="enlaces">Política de privacidad   |   Política de cookies   |   Reglas y Regulaciones   |   Términos y condiciones  |   Juega con responsabilidad</div>
-    <div class="copyright">Copyright © 2022 Betnat. Todos los derechos reservados.</div>
+    <div class="enlacesResguardoCombinada">Política de privacidad   |   Política de cookies   |   Reglas y Regulaciones   |   Términos y condiciones  |   Juega con responsabilidad</div>
+    <div class="copyrightResguardoCombinada">Copyright © 2022 Betnat. Todos los derechos reservados.</div>
   </div>
-  <div class="zonaFooterDer">
-    <img class="footerDer1" src="./assets/img/footerDer1.png">
-    <img class="footerDer2" src="./assets/img/footerDer2.png"><br>
-    <img class="footerDer3" src="./assets/img/footerDer3.png"><br>
-    <img class="footerDer4" src="./assets/img/footerDer4.png">
+  <div class="zonaFooterDerResguardoCombinada">
+    <img class="footerDer1ResguardoCombinada" src="./assets/img/footerDer1.png">
+    <img class="footerDer2ResguardoCombinada" src="./assets/img/footerDer2.png"><br>
+    <img class="footerDer3ResguardoCombinada" src="./assets/img/footerDer3.png"><br>
+    <img class="footerDer4ResguardoCombinada" src="./assets/img/footerDer4.png">
   </div>
 </footer>
 
