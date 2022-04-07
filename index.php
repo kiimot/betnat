@@ -96,22 +96,28 @@ else{
 <section id="seccion1Index">
   <div class="capaOscuraSeccion1Index text-color3">
     <span class="formatoTextoSeccion1Index">
-      <h1 class="tituloSeccion1Index">COMBINADAS SIMPLE</h1>
-      <h6 class="textoSeccion1Index">Jue 5 Mayo, 05:10</h6>
-      <h6 class="textoSeccion1Index"><img class="escudoIndex" src="./assets/img/rusia.png">Daniil Medvedev</h6>
-      <h6 class="textoSeccion1Index"><img class="escudoIndex" src="./assets/img/españa.png">Rafael Nadal</h6>
-      <h6 class="botonesSeleccionesIndex">
-        <form action='seleccionApuesta.php' method='get'>
-            <input type="hidden" name="codigoEvento" value="T01">
-            <input type="hidden" name="seleccionEvento" value="1">
-            <input class="botonCuotaIndex" type="submit" name="eventoBanner1" value="1.66">    
-        </form>
-        <form action='seleccionApuesta.php' method='get'>
-            <input type="hidden" name="codigoEvento" value="T01">
-            <input type="hidden" name="seleccionEvento" value="2">
-            <input class="botonCuotaIndex" type="submit" name="eventoBanner2" value="2.20">    
-        </form>
-      </h6>
+      <div class="estructuraTextoSeccion1Index">
+        <div>
+          <h1 class="tituloSeccion1Index">APUESTA SIMPLE</h1>
+          <h6 class="textoSeccion1Index">Jue 5 Mayo, 05:10</h6>
+          <h6 class="textoSeccion1Index"><img class="escudoIndex" src="./assets/img/rusia.png">Daniil Medvedev</h6>
+          <h6 class="textoSeccion1Index"><img class="escudoIndex" src="./assets/img/españa.png">Rafael Nadal</h6>
+        </div>
+        <div>
+          <h6 class="botonesSeleccionesIndex">
+            <form action='seleccionApuesta.php' method='get'>
+                <input type="hidden" name="codigoEvento" value="T01">
+                <input type="hidden" name="seleccionEvento" value="1">
+                <input class="botonCuotaIndex" type="submit" name="eventoBanner1" value="1.66">    
+            </form>
+            <form action='seleccionApuesta.php' method='get'>
+                <input type="hidden" name="codigoEvento" value="T01">
+                <input type="hidden" name="seleccionEvento" value="2">
+                <input class="botonCuotaIndex" type="submit" name="eventoBanner2" value="2.20">    
+            </form>
+          </h6>
+        </div>
+    </div>
     </span>
   </div>
 </section>
@@ -125,13 +131,13 @@ else{
 <div class="textoSeccion2y3Index">
   <div class="textoSeccion2Index">
     <h6 class="tituloIzquierdaIndex">Oferta de 18 puntos de ventaja - Baloncesto</h6>
-    <h7 class="textoIzquierdaIndex">Si su jugador es sustituido antes del descanso,<br> le devolveremos
-      el importe de su apuesta como<br> créditos de apuesta en mercados seleccionados.</h7>
+    <h7 class="textoIzquierdaIndex">Si su jugador es sustituido antes del descanso,<br class="lgIndex"> le devolveremos
+      el importe de su apuesta como<br  class="lgIndex"> créditos de apuesta en mercados seleccionados.</h7>
   </div>
   <div class="textoSeccion3Index">
     <h6 class="tituloDerechaIndex">Fútbol - Garantía por sustitución</h6>
-    <h7 class="textoDerechaIndex">Sus apuestas sencillas se pagarán si su equipo obtiene<br> 18 puntos
-      de ventaja. Para apuestas múltiples, la selección<br> se determinará
+    <h7 class="textoDerechaIndex">Sus apuestas sencillas se pagarán si su equipo obtiene<br  class="lgIndex"> 18 puntos
+      de ventaja. Para apuestas múltiples, la selección<br  class="lgIndex"> se determinará
      como ganadora.</h7>
   </div>
 </div>

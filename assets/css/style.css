@@ -114,12 +114,17 @@ body {
 
 .formatoTextoBannerIndex {
   float: left;
-  margin-left: 65%;
-  margin-top: 50px;
+  margin-left: 55%;
+  margin-top: 30px;
 }
 
 .tituloBannerIndex {
-  font-size: 25px;
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+
+.textoBannerIndex {
+  font-size: 20px;
 }
 
 .botonCrearApuestaIndex {
@@ -132,7 +137,8 @@ body {
   padding-right: 15px;
   margin-top: 35px;
   float: right;
-  margin-right: 175px;
+  margin-right: 70%;
+  font-size: 20px;
 }
 
 .botonCrearApuestaIndex:hover{
@@ -158,12 +164,22 @@ body {
 
 .formatoTextoSeccion1Index {
   float: left;
-  margin-left: 15%;
+  margin-left: 20%;
   margin-top: 30px;
 }
 
+.estructuraTextoSeccion1Index {
+  display: flex;
+}
+
 .tituloSeccion1Index {
-  font-size: 30px;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.textoSeccion1Index {
+  font-size: 20px;
+  margin-bottom: 25px;
 }
 
 .escudoIndex {
@@ -173,7 +189,7 @@ body {
 }
 
 .botonesSeleccionesIndex {
-  margin-left: 275px;
+  margin-left: 100px;
   display: flex;
 }
 
@@ -185,9 +201,10 @@ body {
   padding: 7.5px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-top: 35px;
   float: right;
   margin-right: 50px;
+  margin-top: 150px;
+  font-size: 20px;
 }
 
 .botonCuotaIndex:hover {
@@ -345,9 +362,9 @@ body {
 
   .formatoTextoBannerIndex {
     float: left;
-    margin-left: 170px;
-    margin-top: 10px;
-    padding-top: 30px;
+    margin-left: 100px;
+    margin-top: 0px;
+    padding-top: 20px;
   }
 
   .tituloBannerIndex {
@@ -366,7 +383,7 @@ body {
     padding-right: 7.5px;
     margin-top: 10px;
     float: right;
-    margin-right: 35px;
+    margin-right: 120px;
   }
 
   /* FIN CSS BANNER */
@@ -384,7 +401,7 @@ body {
 
   .formatoTextoSeccion1Index {
     float: left;
-    margin-left: 85px;
+    margin-left: 55px;
     margin-top: 0px;
     padding-top: 25px;
   }
@@ -406,7 +423,8 @@ body {
   }
 
   .botonesSeleccionesIndex {
-    margin-left: 115px;
+    margin-left: 0px;
+	margin-top: 120px;
   }
 
   .botonCuotaIndex {
@@ -427,7 +445,7 @@ body {
   }
 
   .capaOscuraSeccion2Index {
-    height: 150px;
+    height: 100px;
     margin-bottom: 20px;
   }
 
@@ -439,29 +457,40 @@ body {
     font-size: 15px;
     display: block;
     text-align: center;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 50px;
   }
 
   .textoSeccion2Index, .textoSeccion3Index {
     margin-bottom: 50px;
     margin-left: 0px;
   }
+	
+  .lgIndex {
+	display: none;
+  }
+  
 
   /* FIN CSS TEXTOS CENTRALES */
 
   /* INICIO CSS SECCION 3 */
 
+  #seccion3Index {
+	margin-bottom: 0px;
+  }
   .capaOscuraSeccion3Index {
     background: rgb(31, 31, 31, 0.7);
-    height: 150px;
+    height: 100px;
   }
-
+	
   /* FIN CSS SECCION 3 */
 
   /* INICIO CSS FOOTER */
 
   .footerIndex {
     margin-top: 0px;
-    height: 110px;
+    height: 140px;
     padding-top: 5px;
     display: flex;
   }
@@ -713,6 +742,15 @@ td, th {
   .tituloTablaEventos {
     font-size: 20px;
   }
+	
+  .tablaTablaEventos {
+	border-collapse: collapse;
+	width: 80%;
+	height: 20%;
+	background-color: white;
+	margin-left: 10%;
+	vertical-align: middle;
+  }
 
   .celdaEscondidaTablaEventos {
     display: none;
@@ -724,7 +762,7 @@ td, th {
 
   .footerTablaEventos {
     margin-top: 25px;
-    height: 110px;
+    height: 140px;
     padding-top: 5px;
     display: flex;
   }
@@ -802,7 +840,7 @@ td, th {
   padding: 7.5px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-left: 500px;
+  margin-left: 750px;
 }
 
 .añadirEventosSeleccionApuesta:hover{
@@ -951,11 +989,11 @@ td, th {
 
   .formatoTextoSeleccionApuesta {
     display: block;
-    margin-top: 6%;
+    margin-top: 3%;
   }
 
   .tituloBannerSeleccionApuesta {
-    font-size: 30px;
+    font-size: 32px;
   }
 
   .añadirEventosSeleccionApuesta {
@@ -980,7 +1018,7 @@ td, th {
     width: 90%;
     height: 10%;
     background-color: white;
-    margin-left: 3%;
+    margin-left: 5%;
     text-align: center;
   }
 
@@ -993,6 +1031,28 @@ td, th {
   .formularioSeleccionApuesta {
     margin-top: 15px;
     margin-bottom: 10px;
+  }
+
+  .betSeleccionApuesta_botonApostarCombinadaSeleccionApuesta {
+    background-color: #00B9FF;
+    border-radius: 2.5px;
+    border: 0px;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 50px;
+  }
+  
+  .cuotaEspecialCombinadaSeleccionApuesta {
+    font-family: "Roboto_Italic";
+    font-size: 20px;
+  }
+	
+  .combinadaBetnatSeleccionApuesta {
+    color: #00B9FF;
+	font-family: "Roboto_BoldItalic";
+	font-size: 18px;
   }
 
   /* FIN CSS TABLA */
@@ -1095,7 +1155,7 @@ td, th {
   padding: 7.5px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-left: 500px;
+  margin-left: 800px;
 }
 
 .cerrarTodasMisApuestas:hover{
@@ -1255,8 +1315,8 @@ td, th {
 
   .tablaSeleccionadosMobilMisApuestas {
     display: inline-table;
-    width: 100%;
-    margin-left: 0%;
+    width: 90%;
+    margin-left: 5%;
     font-size: 15px;
     border-collapse: collapse;
     height: 10%;
@@ -1288,7 +1348,7 @@ td, th {
 
   .footerMisApuestas {
     margin-top: 0px;
-    height: 110px;
+    height: 140px;
     padding-top: 5px;
     display: flex;
   }
@@ -1364,7 +1424,7 @@ td, th {
     padding: 7.5px;
     padding-left: 15px;
     padding-right: 15px;
-    margin-left: 500px;
+    margin-left: 600px;
   }
   
   .realizarMasApuestarResguardoCombinada:hover{
@@ -1525,12 +1585,13 @@ td, th {
 
     .tablaSeleccionadosMobilResguardoCombinada {
       display: inline-table;
-      width: 100%;
-      margin-left: 0%;
+      width: 90%;
+      margin-left: 5%;
       border-collapse: collapse;
       height: 10%;
       background-color: white;
       vertical-align: middle;
+	  font-size: 13px;
     }
 
     .tablaSeleccionadosLGResguardoCombinada {
@@ -1557,7 +1618,7 @@ td, th {
   
     .footerResguardoCombinada {
       margin-top: 0px;
-      height: 110px;
+      height: 140px;
       padding-top: 5px;
       display: flex;
     }
@@ -1634,7 +1695,7 @@ td, th {
   padding: 7.5px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-left: 500px;
+  margin-left: 700px;
 }
 
 .realizarMasApuestasResguardoSimple:hover{
@@ -1772,7 +1833,7 @@ td, th {
 
   .formatoTextoResguardoSimple {
     display: block;
-    margin-top: 6%;
+    margin-top: 3%;
   }
 
   .tituloBannerResguardoSimple {
@@ -1794,17 +1855,20 @@ td, th {
 
   .tablaSeleccionadosMobilResguardoSimple {
     display: inline-table;
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
     border-collapse: collapse;
     height: 10%;
     background-color: white;
     vertical-align: middle;
+	font-size: 15px;
   }
 
   .tablaSeleccionadosLGResguardoSimple {
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
+	font-size: 13px;
+	  
   }
 
   .celdaEscondidaResguardoSimple {
@@ -1831,7 +1895,7 @@ td, th {
 
   .footerResguardoSimple {
     margin-top: 0px;
-    height: 110px;
+    height: 140px;
     padding-top: 5px;
     display: flex;
   }

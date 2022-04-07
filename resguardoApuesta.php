@@ -125,11 +125,11 @@ session_start();
             </table>
             
             
-            <table class="tablaSeleccionadosMobilResguardoSimple">
+            <table class="tablaSeleccionadosMobilResguardoSimple"  style="margin-top:2px;">
                 <tr>
                     <th>Cuota</th>
-                    <th>Cantidad Apostada</th>
-                    <th>Ganancias Potenci.</th>
+                    <th>Cantidad Apos.</th>
+                    <th>Ganancias</th>
                 </tr>
                 <tr>
                     <?php

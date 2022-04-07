@@ -147,8 +147,8 @@ session_start();
         </table>
 
     <?php } 
-        //$_SESSION['eventos'] = [] ;
-        //$_SESSION['seleccionEventos'] = [] ;        
+        $_SESSION['eventos'] = [] ;
+        $_SESSION['seleccionEventos'] = [] ;        
     ?>
 </section>
 
